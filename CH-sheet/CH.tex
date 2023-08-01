@@ -1,0 +1,578 @@
+\documentclass[a4paper]{article}
+%\documentclass[a4paper,openany]{amsart}
+%\documentclass[a4paper,openany]{amsbook}
+	%\usepackage{chngcntr}
+	%\counterwithin{section}{chapter}
+%\documentclass{acmlarge}
+\pdfoutput=1
+\usepackage{libertine}
+%\usepackage{aken}
+\usepackage[libertine]{newtxmath}
+%\usepackage{akenthmslight}
+	%\todoyes
+	%\todono
+\let\prodop\relax
+\let\sumop\relax
+%\usepackage{dirhott}
+%\usepackage{mathpartir}
+%\usepackage{natbib}
+%\usepackage{tipa}
+
+%\usepackage{geometry}
+%\newcommand{\todo}[1]{\textbf{\red{*}}\marginpar{\red{#1}}}
+%\renewcommand{\todoi}[1]{\par \textbf{\red{#1}} \par}
+
+\RequirePackage{amsmath}
+%\usepackage{amssymb}
+	\let\openbox\relax
+\RequirePackage{amsthm}
+%\usepackage{thmtools}
+%\usepackage{mathrsfs}
+%%\usepackage{mathabx}
+%\usepackage{latexsym}
+%\usepackage[hidelinks,bookmarksnumbered]{hyperref}
+%\usepackage{cleveref}
+%\usepackage{xcolor}
+%\usepackage{xypic}
+%	\CompileMatrices
+%\usepackage{stmaryrd}
+%\usepackage{epstopdf}
+%\usepackage{array}
+%\usepackage[normalem]{ulem}
+\usepackage{wasysym}
+
+	\newcommand\hmmax{0}
+	\newcommand\bmmax{0}
+\usepackage{bm}
+
+\usepackage[english]{babel}
+%\usepackage[dutch]{babel}
+\usepackage{a4wide}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fontawesome}
+
+
+\sloppy
+
+\newcommand{\name}[1]{\mathsf{#1}}
+\newcommand{\sez}{\vdash}
+
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\Str}{\name{Str}}
+\newcommand{\Bool}{\name{Bool}}
+\newcommand{\true}{\name{true}}
+\newcommand{\false}{\name{false}}
+
+\newcommand{\pushoutcorner}[1][dr]{\save*!/#1+1.2pc/#1:(1,-1)@^{|-}\restore}
+\newcommand{\pullbackcorner}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+
+\newcommand{\todoi}[1]{\textbf{\textcolor{red}{#1 \qed}} \par\noindent}
+\newcommand{\todo}[1]{\textbf{\textcolor{red}{\footnote{\textcolor{red}{#1}}}}}
+%\renewcommand{\todoi}[1]{}
+%\newcommand{\todo}[1]{}
+
+\newcommand{\citebook}[1]{\cite[ch.#1]{hottbook}}
+\newcommand{\citebookpar}[1]{\cite[\S #1]{hottbook}}
+
+\newcommand{\inferenceright}[3]{\dfrac{\begin{array}{l l}#1\end{array}}{\begin{array}{l l}#2\end{array}} #3}
+\newcommand{\inference}[3]{\inferenceright{#1}{#2}{\text{#3}}}
+\newcommand{\binference}[3]{\binferenceright{#1}{#2}{\text{#3}}}
+\newcommand{\loch}{{\llcorner\hspace{-.4ex}\lrcorner}}
+\newcommand{\discup}{\uplus}
+
+\newcommand{\BCat}{\name{BCat}}
+
+\newcommand{\Ty}{\mathrm{Ty}}
+\newcommand{\Tm}{\mathrm{Tm}}
+\newcommand{\Finset}{\name{FinSet}}
+\newcommand{\sSet}{\name{sSet}}
+\newcommand{\Propftr}{\mathrm{Prop}}
+
+%%\newcommand{\Psh}{\name{Psh}}
+%\newcommand{\Disc}{\name{Disc}}
+%%\newcommand{\Prop}{\name{Prop}}
+%\newcommand{\uniPsh}{\cat U^{\name{Psh}}}
+%\newcommand{\uniNDD}{\cat U^{\name{NDD}}}
+%\newcommand{\uniDD}{\cat U^{\name{DD}}}
+%\newcommand{\PropD}{\Prop^{\name{D}}}
+
+\newcommand{\uniNDD}[2]{\cat D_{#1}^{#2}}
+\newcommand{\unidepth}[2]{\cat U_{#1}^{#2}}
+
+\newcommand{\pparen}[1]{{\llparenthesis #1 \rrparenthesis}}
+\newcommand{\paramap}[2]{{\ap \angles{#1} {#2}}}
+
+\newcommand{\IB}{\mathbb{B}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\IE}{\mathbb{E}}
+\newcommand{\XX}{\mathbb{X}}
+	\newcommand{\ctxbrid}[1]{{#1} : \IB}
+	\newcommand{\ctxpath}[1]{{#1} : \IP}
+	\newcommand{\ctxedge}[1]{{#1} : \IE}
+	\newcommand{\ctxline}[1]{{#1} : \XX}
+	\newcommand{\ctxlab}[2]{{#1} : {#2}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\IX}{\mathbb{I}}
+\newcommand{\IF}{\mathbb{F}}
+
+\newcommand{\cwfpair}[2]{{#1, #2}}
+
+\newcommand{\ap}{\name{ap}}
+\newcommand{\J}{\name{J}}
+%\newcommand{\tycode}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\tycode}[1]{\ulcorner #1 \urcorner}
+\newcommand{\dtycode}[1]{\underline \ulcorner #1 \underline \urcorner}
+\newcommand{\dEl}{\underline \El}
+\newcommand{\tycodeNDD}[1]{\ulcorner #1 \urcorner^{\name{NDD}}}
+\newcommand{\ElNDD}{\El^{\name{NDD}}}
+\newcommand{\tycodeDD}[1]{\ulcorner #1 \urcorner^{\name{DD}}}
+\newcommand{\ElDD}{\El^{\name{DD}}}
+\newcommand{\tycodeD}[1]{\ulcorner #1 \urcorner^{\name{D}}}
+\newcommand{\ElD}{\El^{\name{D}}}
+\newcommand{\tycodePsh}[1]{\ulcorner #1 \urcorner^{\name{Psh}}}
+\newcommand{\ElPsh}{\El^{\name{Psh}}}
+\newcommand{\dtype}{\,\name{dtype}}
+\newcommand{\prop}{\,\name{prop}}
+\newcommand{\eqrel}{\,\name{eqrel}\,}
+
+\newcommand{\yoneda}{\mathbf{y}}
+\newcommand{\qsub}[1]{\paren{#1}}
+\newcommand{\homclass}[1]{\mathscr{#1}}
+\newcommand{\cwfshape}{\mathfrak{S}}
+\newcommand{\sheq}{\name{SE}}
+\newcommand{\fpsh}[1]{{#1}^\dagger}%{#1^\circ}
+\newcommand{\fpshadj}[1]{\underline{\alpha}_{#1}}
+\newcommand{\incell}[1]{\fpsh{\overline{#1}}}
+\newcommand{\lpsh}[1]{\widehat{#1}}
+\newcommand{\lelt}[2]{\eta_{#1}(#2)}
+\newcommand{\ftrtm}[2]{{}^{#1} #2}
+\newcommand{\ftrvar}[2]{\ftrtm{#1}{\var{#2}}}
+
+%\newcommand{\shp}{{\text{\textesh}}}
+\newcommand{\shp}{{\rbag}}%{\S}
+\newcommand{\quotshp}{\mathrlap{\shp}{\circ}}
+	\newcommand{\inquotshp}{\varsigma_\circ}
+	\newcommand{\hatinquotshp}{\inquotshp}
+\newcommand{\tmshp}[1]{\hatinquotshp(#1)}
+\newcommand{\tysharp}{\sharp_{\iota}}
+\newcommand{\coshp}{\P}
+
+\newcommand{\catTop}{\name{Top}}
+%\newcommand{\catTop}{\name{Top}}
+
+%\newcommand{\cohpi}{\bigsqcap}
+%\newcommand{\cohdisc}{{\bigtriangleup}}
+%\newcommand{\cohfget}{\bigsqcup}
+%\newcommand{\cohcodisc}{\bigtriangledown}
+%\newcommand{\cohpaths}{\bowtie}
+\newcommand{\cohpi}{{\sqcap}}
+\newcommand{\cohdisc}{{\vartriangle}}
+\newcommand{\cohdiscblack}{{\blacktriangle}}
+\newcommand{\cohfget}{{\sqcup}}
+\newcommand{\cohcodisc}{{\triangledown}}
+\newcommand{\cohpaths}{{\boxminus}}
+
+\newcommand{\Corner}{\name{Corner}}
+
+\newcommand{\colim}{\mathop{\mathrm{colim}}}
+
+\newcommand{\isvar}{\sharp}
+\newcommand{\invar}{\circ}
+%\renewcommand{\sez}{\models}
+\newcommand{\tez}{\vdash}
+\newcommand{\Elp}{\El'}
+\newcommand{\idtpp}[1]{='_{#1}}
+
+\newcommand{\outinvar}{\kappa_\circ}
+%\newcommand{\Elsynt}[1]{\El~\parclr{#1}}
+\newcommand{\reflsynt}{\mathtt{refl}}
+\newcommand{\Jsynt}{\mathtt{J}}
+
+\newcommand{\Br}{\mathbf{B}}
+\newcommand{\Pa}{\mathbf{P}}
+\newcommand{\rfl}{\mathbf{r}}
+\newcommand{\under}{\mathbf{u}}
+\newcommand{\src}{\mathbf{s}}
+\newcommand{\tgt}{\mathbf{t}}
+\newcommand{\vtx}{\mathbf{v}}
+\newcommand{\wtx}{\mathbf{w}}
+\newcommand{\midb}{{\mathrm b}}
+\newcommand{\midp}{{\mathrm p}}
+
+\newcommand{\apb}{\name{ap}_\IB}
+\newcommand{\app}{\name{ap}_\IP}
+\newcommand{\lamb}{\lambda_\IB}
+\newcommand{\lamp}{\lambda_\IP}
+
+\newcommand{\tybridge}[5]{\brac{#1 \xleftarrow{#4} #3 \xrightarrow{#5} #2}}
+\newcommand{\funbridge}[5]{\brac{#1 =_{#4} #3 =_{#5} #2}}
+\newcommand{\typath}[3]{\brac{#1 \xleftarrow{#3} #2}}
+\newcommand{\funpath}[3]{\brac{#1 =_{#3} #2}}
+\newcommand{\unibridge}[7]{\typath{\tybridge{#1}{#2}{#3}{#5}{#6}}{#4}{#7}}
+
+\newcommand{\pathtp}[1]{\asymp_{#1}}
+\newcommand{\ispath}[4]{#4 \in #2 \pathtp{#1} #3}
+\newcommand{\contract}{\name{contract}}
+\newcommand{\degen}{\name{degen}}
+
+\newcommand{\ntybridge}[3]{\Br\paren{#1, #2, #3}}
+
+\newcommand{\sep}{\mathrel{|}}
+
+\newcommand{\Disloc}{\textbf{D}}
+\newcommand{\dislocto}{\mathbin{\to \to}}
+\newcommand{\disloclam}[2]{\lambda \lambda #1 .. #2}
+\newcommand{\dislocapp}[2]{#1 \div #2}
+\newcommand{\ininvto}{{\name{in}{\Disloc}}}
+\newcommand{\outinvto}{{\name{out}{\Disloc}}}
+\newcommand{\Fresh}{\Omega^*}
+\newcommand{\merid}{\name{merid}}
+\newcommand{\unmerid}{\name{unmerid}}
+
+\newcommand{\depdisloc}{dislodging transpension}
+\newcommand{\sigmadisloc}{dislodging suspension}
+\newcommand{\pidisloc}{dislocator}
+
+\newcommand{\Fmap}{F\mathrm{map}}
+
+%\newcommand{\Glue}{\name{Glue}}
+%\newcommand{\glue}{\name{glue}}
+%\newcommand{\unglue}{\name{unglue}}
+\newcommand{\Coglue}{\Weld}
+\newcommand{\coglue}{\weld}
+\newcommand{\matchcoglue}{\mweld}
+
+\newcommand{\sys}[1]{\paren{#1}}
+\newcommand{\sysclause}[2]{#1\,?\,#2}
+%\newcommand{\sysvoid}{\bang}
+\newcommand{\syssep}{\,|\,}
+
+\newcommand{\Glue}{\name{Glue}}
+\newcommand{\Gluesys}[2]{\Glue \accol{#1 \leftarrow \sys{#2}}}
+\newcommand{\Gluesysclause}[3]{#1\,?\,{#2, \ptwclr{#3}}}
+\newcommand{\Gluesysclauseb}[3]{#1\,?\,{#2, #3}}
+\newcommand{\glue}{\name{glue}}
+\newcommand{\gluesys}[2]{\glue \accol{#1 \mapsfrom \sys{#2}}}
+\newcommand{\unglue}{\name{unglue}}
+\newcommand{\ungluesys}[1]{\unglue\,\sys{#1}}
+\newcommand{\Gluetp}[4]{\Gluesys{#2}{\Gluesysclause{#1}{#3}{#4}}}
+\newcommand{\gluetm}[3]{\gluesys{#2}{\sysclause{#1}{#3}}}
+\newcommand{\ungluetm}[3]{\ungluesys{\sysclause{#1}{\ptwclr{#2}}}\,#3}
+
+\newcommand{\Weld}{\name{Weld}}
+\newcommand{\Weldsys}[2]{\Weld \accol{#1 \to \sys{#2}}}
+\newcommand{\Weldsysclause}[3]{#1\,?\,{#2, \ptwclr{#3}}}
+\newcommand{\Weldsysclauseb}[3]{#1\,?\,{#2, #3}}
+\newcommand{\weld}{\name{weld}}
+\newcommand{\weldsys}[1]{\weld\,\sys{#1}}
+\newcommand{\mweld}{\name{mweld}}
+\newcommand{\dweld}{\underline{\weld}}
+\newcommand{\dunweld}{\underline{\name{unweld}}}
+\newcommand{\Weldtp}[4]{\Weldsys{#2}{\Weldsysclause{#1}{#3}{#4}}}
+\newcommand{\weldtm}[3]{\weldsys{\sysclause{#1}{\ptwclr{#2}}}\,#3}
+
+\newcommand{\mill}{\name{mill}}
+\newcommand{\unweld}{\name{unweld}}
+
+\newcommand{\IPsi}{{\mathrm I \Psi}}
+\newcommand{\inIPsi}{{\name{in} \mathrm I \Psi}}
+\newcommand{\outIPsi}{{\name{out} \mathrm I \Psi}}
+\newcommand{\FPsi}{{\mathrm F \Psi}}
+\newcommand{\inFPsi}{{\name{in} \mathrm F \Psi}}
+\newcommand{\outFPsi}{{\name{out} \mathrm F \Psi}}
+\newcommand{\inPsi}{{\name{in} \Psi}}
+\newcommand{\outPsi}{{\name{out} \Psi}}
+
+\newcommand{\cubecat}{\name{Cube}}
+	\newcommand{\cube}[1]{#1}
+\newcommand{\bpcubecat}{\name{BPCube}}
+	\newcommand{\facewkn}[1]{#1 / \oslash}
+	\newcommand{\faceadd}[1]{#1 / \_}
+	\newcommand{\bpdisc}{\widehat{\bpcubecat}_\Disc}
+		\newcommand{\DTy}{\Ty^\Disc}
+\newcommand{\lcubecat}[1]{\cubecat({#1})}
+\newcommand{\pointcat}{{\name{Point}}}
+\newcommand{\catW}{{\cat W}}
+\newcommand{\catV}{{\cat V}}
+\newcommand{\RGcat}{{\name{RG}}}
+	\newcommand{\RGdisc}{\widehat{\RGcat}_\Disc}
+\newcommand{\PCtx}{\name{PCtx}}
+
+\newcommand{\labK}{\mathscr{K}}
+\newcommand{\labL}{\mathscr{L}}
+\newcommand{\labOp}[1]{{#1}\op}
+\newcommand{\ival}[1]{{\llparenthesis#1\rrparenthesis}}
+\newcommand{\modelover}[1]{\widehat{\lcubecat{\labOp{#1}}}}
+\newcommand{\rellist}[2]{\left({#1}\middle|{#2}\right)}
+\newcommand{\relentry}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+\newcommand{\modlist}[2]{\left\langle{#1}\middle|{#2}\right\rangle}
+\newcommand{\modentry}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+\newcommand{\eqty}{{=}}
+\newcommand{\parmod}{\natural}
+\newcommand{\strmod}{\$}
+\newcommand{\pro}[1]{pro$^{#1}$}
+
+%\newcommand{\PSub}[2]{#1 \overset{{}_{\mathrm P}}{\to} #2}
+%\newcommand{\DSub}[2]{#1 \overset{{}_{\mathrm D}}{\to} #2}
+%\newcommand{\Dsez}{\sez^{\mathrm D}}
+\newcommand{\PSub}[2]{#1 \Rrightarrow #2}
+\newcommand{\DSub}[2]{#1 \Rightarrow #2}
+\newcommand{\Dsez}{\mathrel{\rhd}}
+\newcommand{\sub}[1]{\brac{#1}}
+\newcommand{\dsub}[1]{{\left[ #1 \right\rangle}}
+\newcommand{\psub}[1]{\angles{#1}}
+\newcommand{\ssub}[1]{\left\{ #1 \right \}}
+\newcommand{\dlambda}{\underline \lambda}
+\newcommand{\dap}{\underline \ap}
+
+\newcommand{\emptysub}{\bullet}
+
+\newcommand{\textdef}[1]{\textbf{#1}}
+
+\newcommand{\var}[1]{{\bm{#1}}}
+\newcommand{\wknvar}[1]{\wkn{\var{#1}}}
+\newcommand{\wkn}[1]{\pi^{#1}}
+\newcommand{\subext}{{+}}
+\newcommand{\fresh}{\mathrel{\#}}
+
+\newcommand{\fst}{\name{fst}}
+\newcommand{\snd}{\name{snd}}
+
+\newcommand{\textand}{\,\text{and}\,}
+\newcommand{\textor}{\,\text{or}\,}
+\newcommand{\textwhere}{\,\text{where}\,}
+
+%APPENDIX STRUCTURAL IRRELEVANCE
+\newcommand{\shirr}{\%}
+\newcommand{\irr}{\bullet}
+\newcommand{\cohshirr}{{\Diamond}}
+\newcommand{\rpsh}[1]{{#1}_\ddagger}
+\newcommand{\rpshadj}[1]{\underline{\beta}_{#1}}
+
+\newcommand{\tick}[2]{#1 :: #2}
+\newcommand{\TCtx}{\name{TCtx}}
+\newcommand{\semic}{{;}}
+\newcommand{\insemic}{\cdot}
+\newcommand{\inid}{{\diamond}}
+
+\newcommand{\letin}[3]{\name{let}\,#1 := #2\,\name{in}\,#3}
+
+%\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\thetitle}{The Curry-Howard correspondence}
+\newcommand{\theauthors}{\ldots}
+\newcommand{\theinstitution}{\ldots}
+\begin{document}
+	\addtolength{\voffset}{-.5in}
+
+\title{\thetitle}
+%\subtitle{Technical report}
+\date{\today}
+%\author{\theauthors{} \\ \theinstitution}
+%\address{imec-DistriNet, KU Leuven, Belgium}
+\maketitle
+
+\begin{center}
+\small
+\begin{tabular}{| p{0.1\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} || p{0.15\textwidth} | p{0.15\textwidth} | p{0.15\textwidth} |}
+	\hline
+	& Logic & &
+	& Type theory & \\ \hline
+	Proposition
+	& How to prove
+	& How to use
+	& Type of proofs
+	& Construction
+	& Elimination
+	\\ \hline \hline
+	$\top$ (true)
+	& trivial
+	& useless
+	& $\top$ (unit type)
+	& $\name{tt} : \top$
+	& pattern match (useless)
+	\\ \hline
+	$\bot$ (false)
+	& impossible (unless from false assumptions)
+	& implies anything 
+	& $\bot$ (empty type)
+	& no constructors (use impossible proofs in scope)
+	& absurd pattern ()
+	\\ \hline
+	$P \wedge Q$ (and)
+	& Prove $P$ and prove $Q$
+	& Implies $P$ and implies $Q$
+	& $P \times Q$ (product / pair type)
+	& $(\_, \_) :$ \newline $P \to Q \to P \times Q$
+	& projections \newline (or pattern match)
+	\\ \hline
+	$P \vee Q$ (or)
+	& Prove $P$ or prove $Q$
+	& Case distinction: \newline
+		If $P$ holds \ldots, \newline
+		If $Q$ holds \ldots
+	& $P \uplus Q$ \newline (disjoint union / tagged union / coproduct / sum)
+	& $\name{left} : P \to P \uplus Q$ \newline
+	  $\name{right} : Q \to P \uplus Q$
+	& pattern match
+	\\ \hline
+	$\bigwedge_i P_i$
+	& For all $i$, prove $P_i$
+	& Implies all $P_i$
+	& Record type with fields $p_i : P_i$
+	& co-pattern match (or constructor)
+	& fields (or pattern match)
+	\\ \hline
+	$\bigvee_i \bigwedge_j P_{i, j}$
+	& For some $i$ and all $j$, prove $P_{i, j}$
+	& Case distinction
+	& Inductive type $T$
+	& constructors \newline
+	  $c_i : P_{i, 1} \to P_{i, 2} \to \ldots \to T$
+	& pattern match
+	\\ \hline
+	$P \Rightarrow Q$ \newline (implies)
+	& Prove $Q$ assuming $P$
+	& Modus ponens: \newline
+	  $\frac{P \quad P \implies Q}{Q}$
+	& $P \to Q$ \newline (function type)
+	& $\lambda$-abstraction: \newline
+	  Prove $Q$ with \newline $p : P$ in scope
+	& application: \newline
+	  $\frac{\Gamma \sez p : P \quad \Gamma \sez f : P \to Q}{\Gamma \sez fp : Q}$
+	\\ \hline
+	$\lnot P$ (not)
+	& From the absurd: \newline Assume $P$, prove contradiction.
+	& {~} \newline $\frac{P \quad \lnot P}{\bot}$
+	& $P \to \bot$
+	& $\lambda$-abstraction: \newline
+	  Prove $\bot$ with \newline $p : P$ in scope
+	& application: \newline
+	  $\frac{\Gamma \sez p : P \quad \Gamma \sez f : P \to \bot}{\Gamma \sez fp : \bot}$
+	\\ \hline
+	$a_1 {=} a_2 \in A$
+	& Reflexivity
+	& Identify $a_1$ and $a_2$
+	& $a_1 \equiv_A a_2$
+	& $\name{refl} : a \equiv_A a$
+	& pattern match
+	\\ \hline
+	$\forall x \in A : P(x)$
+	& Pick $x \in A$, \newline prove $P(x)$
+	& Instantiate: \newline
+	  $\frac{\forall x \in A : P(x) \quad a \in A}{P(a)}$
+	& $(x : A) \to P~x$ \newline
+	  $\Pi(x : A).P~x$ \newline
+	  In Agda: \newline $\mathtt{(x : A)} \to \mathtt{P~x}$ \newline
+	  (Dependent function type)
+	& $\lambda$-abstraction: Prove $P~x$ with $x : A$ in scope
+	& application: \newline
+	  $\tiny \inference{\Gamma \sez a : A \\ \Gamma \sez f : (x : A) \to P~x}{\Gamma \sez fa : P~a}{}$
+	\\ \hline
+	$\exists x \in A : P(x)$
+	& Prove $P(a)$ for some $a \in A$
+	& Continue proof assuming some $x \in A$ satisfying $P(x)$
+	& $(x : A) \times P~x$ \newline
+	  $\Sigma(x : A).P~x$ \newline
+	  In Agda \newline
+	  $\Sigma[~x~\in~A~]~P~x$ \newline
+	  (Dependent \newline pair type)
+	& $(\_, \_) :$ \newline
+	  $(x : A) \to P~x \to$ \newline $\Sigma(x : A).P~x$
+	& pattern match (brings $x : A$ and $p : P~x$ in scope) \newline (or projections)
+	\\ \hline
+	$A$ is inhabited
+	& Construct an element of $A$
+	& Assume $x \in A$
+	& $A$
+	& Construct a term of type $A$
+	& Eliminate $x : A$
+	\\ \hline \hline
+	$P \vee \lnot P$
+	& (always true in classical logic)
+	&
+	& $P \uplus (P \to \bot)$ \newline ($P$ is decidable)
+	& Implement a decision algorithm
+	&
+	\\ \hline
+	$\lnot \lnot P$
+	& (equivalent to $P$ in classical logic)
+	&
+	& $(P \to \bot) \to \bot$ \newline
+	  ($P$ holds non-constructively)
+	& $\lambda$-abstraction
+	& application
+	\\ \hline
+\end{tabular}
+\end{center}
+The table above presents most of the Curry-Howard correspondence.
+It also points out two important differences between classical logic on one hand and type theory and constructive logic on the other hand:
+\begin{itemize}
+	\item In type theory, the law of excluded middle $P \vee \lnot P$ only holds for decidable propositions (this is in fact the definition of decidability). 
+	\item In type theory, $P$ implies its own double negation $(P \to \bot) \to \bot$ (write a proof term!) but not the other way around. Indeed, from a type theoretic proof of an existential theorem (i.e. an element of a $\Sigma$-type) we can project the witness (the first component). Hence all existential proofs in type theory are constructive. But we cannot extract a witness from a term of type $((\Sigma(x : A).P~x) \to \bot) \to \bot$.
+\end{itemize}
+
+
+
+%\newpage
+\section{Example}
+Let's try to formalize the following in Agda:
+\begin{definition}
+	A function $f : A \to B$ is surjective if, for every $b \in B$, there is some $a \in A$ such that $f(a) = b$.
+\end{definition}
+\begin{theorem}
+	There is no surjective function from the natural numbers to streams of booleans.
+\end{theorem}
+\begin{proof}[Logical proof]
+	Assume there exists a surjective function $f : \IN \to \Str~\Bool$. Then we construct a stream $e$ which by construction is not in the image of $f$.
+	The idea is that we list all streams and then construct a stream that is the negation of the diagonal:
+	\begin{equation}
+		\begin{array}{c c c c c c c c c}
+			f(0) &= &\underline\true &\false &\false &\true &\false &\true &\ldots \\
+			f(1) &= &\false &\underline\false &\true &\false &\false &\false &\ldots \\
+			f(2) &= &\true &\true &\underline\false &\false &\true &\false &\ldots \\
+			f(3) &= &\true &\false &\true &\underline\true &\false &\true &\ldots \\
+			f(4) &= &\false &\false &\true &\false &\underline\false &\true &\ldots \\
+			f(5) &= &\true &\false &\false &\true &\false &\underline\false &\ldots \\
+			& \vdots &&&&&&&\ddots \\
+			e &= &\false &\true &\true &\false &\true &\true &\ldots
+		\end{array}
+	\end{equation}
+	Then if this stream is $f(k)$, then it's $k$th element is its own negation.
+	
+	Formally, we define
+	\begin{equation}
+		e_i := \lnot f(i)_i.
+	\end{equation}
+	Since $e \in \Str~\Bool$, we know that $e = f(k)$ for some $k \in \IN$. Then we have
+	\begin{equation}
+		f(k)_k = e_k = \lnot f(k)_k,
+	\end{equation}
+	which is impossible.
+\end{proof}
+\begin{remark}
+	An argument like the above is the essence of several well-known theorems:
+	\begin{itemize}
+		\item There is no set of all sets (in set theory),
+		\item There is no type of all types (in type theory); in Agda, we have $\name{Set} : \name{Set}_1$,
+		\item There are strictly more real numbers than natural numbers,
+		\item The halting problem: given a program, it is undecidable whether a Turing machine running that program, will halt.
+	\end{itemize}
+\end{remark}
+
+\bibliographystyle{alphaurl}
+\bibliography{intern-psh-refs.bib}
+
+\end{document}
