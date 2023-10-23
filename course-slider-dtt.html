@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  @font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #24292e;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b31d28;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2 {
+  background-color: #d73a49;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #22863a;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #005cc5;
+  font-weight: 700;
+}
+
+.markdown-body .pl-mi {
+  color: #24292e;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #24292e;
+  font-weight: 700;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffeef0;
+  color: #b31d28;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #f0fff4;
+  color: #22863a;
+}
+
+.markdown-body .pl-mc {
+  background-color: #ffebda;
+  color: #e36209;
+}
+
+.markdown-body .pl-mi2 {
+  background-color: #005cc5;
+  color: #f6f8fa;
+}
+
+.markdown-body .pl-mdr {
+  color: #6f42c1;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  color: #032f62;
+  text-decoration: underline;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.markdown-body hr:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body hr:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-bottom: 0!important;
+  padding-top: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-bottom: 8px!important;
+  padding-top: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.markdown-body hr {
+  background-color: #e1e4e8;
+  border: 0;
+  height: .25em;
+  margin: 24px 0;
+  padding: 0;
+}
+
+.markdown-body blockquote {
+  border-left: .25em solid #dfe2e5;
+  color: #6a737d;
+  padding: 0 1em;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+  color: #444d56;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: .3em;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  color: #6a737d;
+  font-size: .85em;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.markdown-body dl dd {
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.markdown-body table {
+  display: block;
+  overflow: auto;
+  width: 100%;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  background-color: #fff;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: .2em .4em;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  max-width: auto;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+}
+
+.markdown-body .commit-tease-sha {
+  color: #444d56;
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 90%;
+}
+
+.markdown-body .blob-wrapper {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  color: rgba(27,31,35,.3);
+  cursor: pointer;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  min-width: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  line-height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  color: #24292e;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  overflow: visible;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  background: #ffea7f;
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+  color: #444d56;
+  display: inline-block;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  border-color: #0366d6;
+  position: relative;
+  z-index: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+  </style>
+  <style>
+  /**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #9a6e3a;
+	/* This background color was intended by the author of this theme. */
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function,
+.token.class-name {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+  </style>
+  <style>
+  
+  </style>
+  <style>
+    .markdown-body {
+      font-family: -apple-system,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    @media not print {
+      .markdown-body {
+        padding: 45px;
+      }
+
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+    }
+
+    .hf-container {
+      color: #24292e;
+      line-height: 1.3;
+    }
+
+    .markdown-body .highlight pre,
+    .markdown-body pre {
+      white-space: pre-wrap;
+    }
+    .markdown-body table {
+      display: table;
+    }
+    .markdown-body img[data-align="center"] {
+      display: block;
+      margin: 0 auto;
+    }
+    .markdown-body img[data-align="right"] {
+      display: block;
+      margin: 0 0 0 auto;
+    }
+    .markdown-body li.task-list-item {
+      list-style-type: none;
+    }
+    .markdown-body li > [type=checkbox] {
+      margin: 0 0 0 -1.3em;
+    }
+    .markdown-body input[type="checkbox"] ~ p {
+      margin-top: 0;
+      display: inline-block;
+    }
+    .markdown-body ol ol,
+    .markdown-body ul ol {
+      list-style-type: decimal;
+    }
+    .markdown-body ol ol ol,
+    .markdown-body ol ul ol,
+    .markdown-body ul ol ol,
+    .markdown-body ul ul ol {
+      list-style-type: decimal;
+    }
+  </style>
+  <style>.markdown-body a.footnote-ref {
+  text-decoration: none;
+}
+
+.footnotes {
+  font-size: .85em;
+  opacity: .8;
+}
+
+.footnotes li[role="doc-endnote"] {
+  position: relative;
+}
+
+.footnotes .footnote-back {
+  position: absolute;
+  font-family: initial;
+  top: .2em;
+  right: 1em;
+  text-decoration: none;
+}
+
+.inline-math.invalid,
+.multiple-math.invalid {
+  color: rgb(255, 105, 105);
+}
+
+.toc-container {
+  width: 100%;
+}
+
+.toc-container .toc-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
+.toc-container li,
+.toc-container ul,
+.toc-container ul li {
+  list-style: none !important;
+}
+
+.toc-container > ul {
+  padding-left: 0;
+}
+
+.toc-container ul li span {
+  display : flex;
+}
+
+.toc-container ul li span a {
+  color: inherit;
+  text-decoration: none;
+}
+.toc-container ul li span a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.toc-container ul li span span.dots {
+  flex: 1;
+  height: 0.65em;
+  margin: 0 10px;
+  border-bottom: 2px dotted black;
+}
+</style>
+  <style>.markdown-body{}pre.front-matter{display:none!important;}</style>
+</head>
+<body>
+  <article class="markdown-body"><h2 class="atx" id="dependent-type-theory-dtt">Dependent type theory (DTT)</h2>
+<p><em>Andreas Nuyts</em></p>
+<h3 class="atx" id="0-intro">0 Intro</h3>
+<ul>
+<li>STLC: Simply typed</li>
+<li>Chapter 23-24: <code>∀</code>, <code>∃</code><ul>
+<li>Term variables <code>x : Bool</code></li>
+<li>Type (operator) variables <code>X</code></li>
+</ul>
+</li>
+<li>Dependent type systems<ul>
+<li>Types are "first class citizens"</li>
+<li>Type of types <code>Set</code> (as in Agda, <code>Type</code> would be more logical)</li>
+<li>Type variables <code>X : Set</code> are special case of term variables</li>
+</ul>
+</li>
+</ul>
+<p>Goal of this chapter:</p>
+<ul>
+<li>background information to help you to <strong>use</strong> DTT</li>
+</ul>
+<p><strong>Not</strong> the goal of this chapter:</p>
+<ul>
+<li>prove metatheorems about DTT (termination, consistency, decidability of typing, ...)</li>
+<li>understand how to implement a proof-assistant</li>
+</ul>
+<h3 class="atx" id="1-motivation">1 Motivation</h3>
+<h4 class="atx" id="11-programming">1.1 Programming</h4>
+<ul>
+<li>Dependently typed languages are <strong>programming languages</strong></li>
+<li>Simple types: catch simple errors at compile time (e.g. no bool when number is expected)</li>
+<li>Dependent types: More subtle</li>
+</ul>
+<h5 class="atx" id="lists">Lists</h5>
+<p>Type <code>List A</code> in TAPL:</p>
+<pre><code class="fenced-code-block">nil : List A
+cons : A -&gt; List A -&gt; List A</code></pre>
+<p>Three-element list: <code>cons a1 (cons a2 (cons a3 nil))</code>.</p>
+<p>Analyzing/using lists:</p>
+<pre><code class="fenced-code-block">isnil : List A -&gt; Bool
+head : List A -&gt; A
+tail : List A -&gt; List A</code></pre>
+<p>Problem: <code>head nil</code> and <code>tail nil</code> are not defined (stuck terms).</p>
+<p>Possible solution:</p>
+<pre><code class="fenced-code-block">fold : B -&gt; (A -&gt; B -&gt; B) -&gt; List A -&gt; B
+fold nilB consB nil = nilB
+fold nilB consB (cons a as) = consB a (fold nilB consB as)</code></pre>
+<ul>
+<li><code>fold</code> is total</li>
+<li>but maybe we <strong>know</strong> that <code>xs</code> is non-empty and we want its <code>head</code>/<code>tail</code></li>
+</ul>
+<h5 class="atx" id="vectors">Vectors</h5>
+<p>Vectors are lists of given length:</p>
+<pre><code class="fenced-code-block language-agda">data Vec (A : Set) : Nat -&gt; Set where
+  nil : Vec 0
+  cons : {n : Nat} -&gt; A -&gt; Vec A n -&gt; Vec A (suc n)</code></pre>
+<p>Compute <code>head</code>/<code>tail</code> when length is nonzero (i.e. successor of something):</p>
+<pre><code class="fenced-code-block language-agda">head : {n : Nat} -&gt; Vec A (suc n) -&gt; A
+head (cons a as) = a
+tail : {n : Nat} -&gt; Vec A (suc n) -&gt; Vec A n
+tail (cons a as) = as</code></pre>
+<p>No clauses for <code>nil</code> since <code>head nil</code> and <code>tail nil</code> are ill-typed.</p>
+<h4 class="atx" id="12-proving">1.2 Proving</h4>
+<ul>
+<li>Dependent type theory is a <strong>constructive logic</strong>.<ul>
+<li>Constructive: a proposition can only be asserted by providing evidence</li>
+</ul>
+</li>
+<li>Proposition <code>A</code> is made up of logical connectives (and, or, not, implication, …).</li>
+<li>The type <code>Proof A</code> of evidence needed to assert <code>A</code> is defined by induction.</li>
+</ul>
+<h5 class="atx" id="conjunction">Conjunction</h5>
+<p><code>Proof (A ∧ B) = Proof A × Proof B</code></p>
+<pre><code class="fenced-code-block">Γ |– a : Proof A
+Γ |– b : Proof B
+-------------------------------
+Γ |– (a, b) : Proof A × Proof B
+               = Proof (A ∧ B)</code></pre>
+<h5 class="atx" id="existential-quantification">Existential quantification</h5>
+<p><code>Proof (∃ (x : A) . P(x)) = Σ (x : A) . Proof (P(x))</code></p>
+<pre><code class="fenced-code-block">Γ |– a : A
+Γ |– p : Proof(P(a))
+--------------------------------------
+Γ |– (a, p) : Σ (x : A) . Proof (P(x))
+               = Proof (∃ (x : A) . P(x))</code></pre>
+<p>Note: Agda notation <code>Σ[ x ∈ A ] Proof (P(x))</code></p>
+<h5 class="atx" id="propositions-are-types">Propositions are types</h5>
+<ul>
+<li>Above, we had <code>Proof : MathProp -&gt; Set</code></li>
+<li>Actually, we define<ul>
+<li><code>MathProp = Set</code></li>
+<li><pre><code class="fenced-code-block">Proof : MathProp -&gt; Set
+Proof A = A</code></pre>
+</li>
+<li><code>A ∧ B = A × B</code> etc.</li>
+</ul>
+</li>
+<li>So propositions <strong>are</strong> types</li>
+<li>This correspondence is called the <strong>Curry-Howard correspondence</strong>.</li>
+</ul>
+<h5 class="atx" id="example">Example</h5>
+<p>"If A implies (B or C), then (A and not B) implies C"</p>
+<p>can be written as:</p>
+<pre><code class="fenced-code-block language-agda">taut : {A B C : Set} -&gt; (A -&gt; B ⊎ C) -&gt; (A × (B -&gt; ⊥) -&gt; C)</code></pre>
+<p>and proven as follows:</p>
+<pre><code class="fenced-code-block language-agda">taut f (a , notb) with f a
+taut f (a , notb) | inl b with notb b
+taut f (a , notb) | inl b | ()
+taut f (a , notb) | inr c = c</code></pre>
+<h5 class="atx" id="example-1">Example</h5>
+<p>Property of constructive logic:</p>
+<p>If for each <code>x ∈ X</code>, there exists some <code>y ∈ Y</code> such that <code>P x y</code>,</p>
+<p>then there is a function <code>f : X -&gt; Y</code> such that for each <code>x ∈ X</code>, we have <code>P x (f x)</code>.</p>
+<pre><code class="fenced-code-block language-agda">property : {X Y : Set} {P : X -&gt; Y -&gt; Set} -&gt;
+  ((x : X) -&gt; Σ[ y ∈ Y ] P x y) -&gt;
+  Σ[ f ∈ (X -&gt; Y) ] ((x : X) -&gt; P x (f x))
+property p = ( λ x -&gt; proj₁ (p x) , λ x -&gt; proj₂ (p x) )</code></pre>
+<h4 class="atx" id="13-programs-requiring-evidence">1.3 Programs requiring evidence</h4>
+<h5 class="atx" id="indexing-a-list">Indexing a list</h5>
+<pre><code class="fenced-code-block language-agda">_!!_ : List A -&gt; Nat -&gt; A
+cons a as !! 0 = a
+cons a as !! suc n = as !! n</code></pre>
+<ul>
+<li>Undefined for empty list</li>
+<li>Undefined when index out of bounds</li>
+</ul>
+<h5 class="atx" id="indexing-a-vector">Indexing a vector</h5>
+<ul>
+<li>Use length-indexed vector type</li>
+<li>Provide evidence that index is within bounds</li>
+</ul>
+<pre><code class="fenced-code-block language-agda">_!!_ : {n : Nat} -&gt; Vec A n -&gt; (Σ[ i ∈ Nat ] (i &lt; n)) -&gt; A
+nil !! (i , ())
+cons a as !! (0 , _) = a
+cons a as !! (suc n , p) = as !! (n , decrement&lt; p)</code></pre>
+<p>where <code>decrement&lt; : {m n : Nat} -&gt; (suc m &lt; suc n) -&gt; (m &lt; n)</code>.</p>
+<ul>
+<li>Absurd clause for the empty list:<ul>
+<li><code>i &lt; 0</code> is absurd, so use absurd pattern <code>()</code></li>
+<li>no right-hand-side.</li>
+</ul>
+</li>
+</ul>
+<h4 class="atx" id="14-formalizing-programming-languages">1.4 Formalizing programming languages</h4>
+<h5 class="atx" id="objectinternal-language-and-metalanguage">Object/internal language and metalanguage</h5>
+<p>We can use DTT/Agda as a metatheory for the formalization of <em>another</em> language:</p>
+<ul>
+<li><strong>object/internal language:</strong> the one we want to formalize.<ul>
+<li>e.g. Untyped/typed arithmetic, ULC, STLC, Web assembly, ...</li>
+</ul>
+</li>
+<li><strong>metalanguage/metatheory:</strong> DTT / Agda / set theory / ...</li>
+<li>Language confusion:<ul>
+<li>internal types vs metatypes</li>
+<li>internal terms vs metaterms</li>
+<li>internal judgements vs metajudgements</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+<h5 class="atx" id="metatype-of-internal-derivations">Metatype of internal derivations</h5>
+<p>Thanks to (meta)type dependency, we can consider a (meta)type of internal derivations,</p>
+<p>parametrized by an internal context, term and type:</p>
+<pre><code class="fenced-code-block language-agda">IDeriv : ICtx -&gt; ITerm -&gt; IType -&gt; Set</code></pre>
+<p>Now <code>IDeriv Γ t T</code> can be read as</p>
+<ul>
+<li>the metatype of internal derivations</li>
+<li>the metaproposition "The internal judgement <code>Γ ⊢ t : T</code> is derivable"<ul>
+<li>evidence (inhabitant) is a derivation tree.</li>
+</ul>
+</li>
+</ul>
+<p>Agda mixfix notation to write <code>Γ ⊢ t ∈ T</code> instead of <code>IDeriv Γ t T</code>:</p>
+<pre><code class="fenced-code-block language-agda">_⊢_∈_ : ICtx -&gt; ITerm -&gt; IType -&gt; Set
+_⊢_∈_ = IDeriv</code></pre>
+<h5 class="atx" id="inference-rules">Inference rules</h5>
+<ul>
+<li>Derivation trees are generated by inference rules</li>
+<li><code>IDeriv</code> is a datatype (inductive type)<ul>
+<li>constructors are inference rules</li>
+</ul>
+</li>
+<li>Proofs by induction on a derivation, are:<ul>
+<li>Agda functions taking argument of type <code>IDeriv</code></li>
+<li>Proceed by case distinction on the outer inference rule.</li>
+</ul>
+</li>
+</ul>
+<h3 class="atx" id="2-the-lambda-cube">2 The Lambda-cube</h3>
+<p>This part</p>
+<ul>
+<li>is not essential to work with DTT</li>
+<li>is included to clarify how DTT relates to other extensions of STLC<ul>
+<li>in particular and <code>∀</code> and <code>∃</code> (ch 23-24)</li>
+</ul>
+</li>
+</ul>
+<p>DTT arises by extending STLC with 3 features.</p>
+<ul>
+<li>We can extend with any subset of these features -&gt; <code>2^3 = 8</code> possibilities
+-&gt; Corners of the Lambda-cube.</li>
+<li>Each feature introduces a new lambda-abstraction rule, creating a new class of functions.</li>
+</ul>
+<h4 class="atx" id="20-simply-typed-lambda-calculus-stlc">2.0 Simply-typed lambda-calculus (STLC)</h4>
+<p>STLC has lambda-abstraction for functions sending <strong>terms</strong> to <strong>terms</strong>:</p>
+<pre><code class="fenced-code-block">Γ, x : A ⊢ b : B
+-----------------------
+Γ ⊢ λ(x : A).b : A -&gt; B</code></pre>
+<p>The other abstraction rules have <strong>types/type operators</strong> as input and/or output.</p>
+<ul>
+<li><strong>Kinds</strong> classify types &amp; type operators.</li>
+<li><code>T :: K</code> (double colon) means <code>T</code> has kind <code>K</code>.</li>
+<li>Kind of types is called <code>*</code>, e.g. <code>Bool :: *</code></li>
+</ul>
+<h4 class="atx" id="21-type-operators-tapl-ch-29">2.1 Type operators (TAPL ch 29)</h4>
+<p>Sending <strong>types/type operators</strong> to <strong>types/type operators</strong>:</p>
+<pre><code class="fenced-code-block">Γ, X :: K ⊢ T :: K'
+-------------------------
+Γ ⊢ Λ(X :: K).T : K -&gt; K'</code></pre>
+<p>The <strong>kind</strong> of the above lambda-abstraction is the function kind <code>K -&gt; K'</code>.</p>
+<h5 class="atx" id="example-state-monad">Example: State monad</h5>
+<p>A program of type <code>State S A</code> is a program that computes a value of type <code>A</code>
+using a single mutable variable of type <code>S</code> but is otherwise pure.</p>
+<p>Define:</p>
+<pre><code class="fenced-code-block">State :: * -&gt; * -&gt; *
+State = Λ(S :: *).Λ(A :: *).(S -&gt; S × A)</code></pre>
+<p>so <code>State S A = S -&gt; S × A</code>:</p>
+<ul>
+<li>input: initial state</li>
+<li>output: final state &amp; return value</li>
+</ul>
+<p>Derivation tree:</p>
+<pre><code class="fenced-code-block">                                         -----------------------
+                                         S :: *, A :: * ⊢ A :: *
+                                                        :
+                           -----------------------      :
+                           S :: *, A :: * ⊢ S :: *      :
+-----------------------    ----------------------------------
+S :: *, A :: * ⊢ S :: *        S :: *, A :: * ⊢ S × A :: *
+----------------------------------------------------------
+S :: *, A :: * ⊢ S -&gt; S × A :: *
+-------------------------------------------------
+S :: * ⊢ Λ(A :: *).(S -&gt; S × A) :: * -&gt; *
+-------------------------------------------------
+⊢ Λ(S :: *).Λ(A :: *).(S -&gt; S × A) :: * -&gt; * -&gt; *</code></pre>
+<h5 class="atx" id="type-operators-vs-function-types">Type operators vs. function types</h5>
+<p>Subtle difference between <code>Λ</code> and <code>-&gt;</code>:</p>
+<ul>
+<li><code>Λ(S :: *)</code> and <code>Λ(A :: *)</code> indicate that <code>State</code> <em>itself</em> takes two arguments <code>S</code> and <code>A</code> of kind <code>*</code>.</li>
+<li>The function type <code>S -&gt; ...</code> indicates that the <em>elements</em> of <code>State S A</code> take an argument of type <code>S</code>.</li>
+</ul>
+<h4 class="atx" id="22-polymorphic-functions-ch-23">2.2 Polymorphic functions (ch 23)</h4>
+<p>Sending <strong>types/type operators</strong> so <strong>terms</strong>:</p>
+<pre><code class="fenced-code-block">Γ, X :: K ⊢ b : B
+-----------------------
+Γ ⊢ Λ(X :: K).b : ∀(X :: K).B</code></pre>
+<ul>
+<li>Important: type <code>B</code> can mention type variable <code>X</code>.</li>
+<li>The <strong>type</strong> of the above lambda-abstraction is the <strong>universal type</strong><code>∀(X :: K).B</code>,
+which universally quantifies over the kind <code>K</code>.</li>
+</ul>
+<h5 class="atx" id="examples">Examples</h5>
+<p>Polymorphic list operations:</p>
+<pre><code class="fenced-code-block">nil : ∀(X :: *).List X
+cons : ∀(X :: *).X -&gt; List X -&gt; List X
+isnil : ∀(X :: *).List X -&gt; Bool</code></pre>
+<p>Polymorphic identity function:</p>
+<pre><code class="fenced-code-block">id : ∀(X :: *).X -&gt; X
+id = Λ(X :: *).λ(x : X).x</code></pre>
+<h5 class="atx" id="system-names">System names</h5>
+<ul>
+<li>STLC + polymorphic functions = System F a.k.a. the polymorphic lambda-calculus (TAPL ch 23)<ul>
+<li>Only kind is <code>*</code></li>
+</ul>
+</li>
+<li>STLC + polymorphic functions + type operators = System Fω (TAPL ch 30)<ul>
+<li>Other kinds</li>
+</ul>
+</li>
+</ul>
+<h4 class="atx" id="23-dependent-types">2.3 Dependent types</h4>
+<p>Sending <strong>terms</strong> <code>x</code> to <strong>types</strong> <code>P(x)</code>:</p>
+<pre><code class="fenced-code-block">Γ, x : A ⊢ T :: K
+-----------------------
+Γ ⊢ λ(x : A).T :: A -&gt; K</code></pre>
+<p>The <strong>kind</strong> of a dependent type is a function kind, whose domain is merely a type.</p>
+<p>Due to type dependency, the usual term-to-term lambda-abstraction from the STLC can actually create dependent functions:</p>
+<pre><code class="fenced-code-block">Γ, x : A ⊢ T :: K
+Γ, x : A ⊢ t : T
+-----------------------
+Γ ⊢ λ(x : A).t : Π(x : A).T</code></pre>
+<p>Agda notations for <code>Π(x : A).T</code>:</p>
+<ul>
+<li><code>(x : A) -&gt; T</code></li>
+<li><code>∀(x : A) -&gt; T</code></li>
+<li><code>∀ x -&gt; T</code> when the domain <code>A</code> can be inferred</li>
+</ul>
+<p>When <code>T</code> does not depend on <code>x</code>, write <code>A -&gt; T</code>.</p>
+<h5 class="atx" id="examples-1">Examples</h5>
+<p><code>Vec :: * -&gt; Nat -&gt; *</code> sends terms <code>n : Nat</code> types <code>Vec A n :: *</code>.</p>
+<p>Could even define <code>Vec</code> recursively:</p>
+<pre><code class="fenced-code-block">Vec :: * -&gt; Nat -&gt; *
+Vec A 0 = Unit
+Vec A (suc n) = A × Vec A n</code></pre>
+<p>Note: type argument of <code>Vec</code> requires the existence of type operators.</p>
+<h5 class="atx" id="system-names-1">System names:</h5>
+<p>STLC + type dependency is called:</p>
+<ul>
+<li>λΠ-calculus (because we now have Π-types)</li>
+<li>logical framework (LF):<ul>
+<li><code>P :: A -&gt; *</code> can be regarded as a <strong>predicate</strong> on <code>A</code></li>
+<li><code>x</code> satisfies the predicate if there is a proof (inhabitant) of <code>P(x)</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 class="atx" id="24-the-universe-set">2.4 The universe <code>Set</code></h4>
+<p>DTT requires:</p>
+<ul>
+<li>type operators</li>
+<li>polymorphic functions</li>
+<li>dependent types</li>
+</ul>
+<p>This is called the Calculus of Constructions, one flavour of DTT.</p>
+<p>We can now abolish type/kind distinction.</p>
+<ul>
+<li>Rename <code>*</code> to <code>Set</code>, known as the <strong>universe</strong>.</li>
+</ul>
+<h3 class="atx" id="3-inference-rules-of-dtt">3 Inference rules of DTT</h3>
+<p>Reminder:</p>
+<ul>
+<li>Goal = provide spec of DTT to help you use Agda</li>
+<li>Goal ≠ metatheoretical study of DTT</li>
+</ul>
+<p>We consider MLTT (Martin-Löf type theory), one flavour of DTT.</p>
+<h4 class="atx" id="31-judgement-forms">3.1 Judgement forms</h4>
+<p>STLC: contexts &amp; types defined by a simple grammar.</p>
+<p>DTT:</p>
+<ul>
+<li>Contexts mention types</li>
+<li>Types mention terms, including variables</li>
+<li>-&gt; Scope matters</li>
+<li>-&gt; Typing matters</li>
+<li>-&gt; Need context &amp; type <em>judgements</em></li>
+</ul>
+<p>Judgement forms:</p>
+<ul>
+<li><p><code>Γ ctx</code> - <code>Γ</code> is a well-formed context,</p>
+</li>
+<li><p><code>Γ ⊢ T type</code> - <code>T</code> is a well-formed type in context <code>Γ</code>,</p>
+</li>
+<li><p><code>Γ ⊢ t : T</code> - <code>t</code> is a well-typed term of type <code>T</code> in context <code>Γ</code>.</p>
+</li>
+</ul>
+<p>Under the Curry-Howard correspondence, the latter two judgements may also be read as:</p>
+<ul>
+<li><p><code>Γ ⊢ T type</code> - <code>T</code> is a well-formed proposition in context <code>Γ</code>,</p>
+</li>
+<li><p><code>Γ ⊢ t : T</code> - The proposition <code>T</code> is true in context <code>Γ</code>, as is evident from the well-formed proof <code>t</code>.</p>
+</li>
+</ul>
+<p><strong>Note:</strong> Impossible to assert <code>T</code> without providing evidence.</p>
+<h5 class="atx" id="presupposition">Presupposition</h5>
+<ul>
+<li><p><code>Γ ⊢ T type</code> does <strong>not</strong> mean: "<code>Γ</code> is a well-formed context <strong>and</strong> <code>T</code> is a well-formed type in context <code>Γ</code>."</p>
+</li>
+<li><p><code>Γ ⊢ T type</code> does <strong>not</strong> mean: "<strong>If</strong> <code>Γ</code> is a well-formed context <strong>then</strong> <code>T</code> is a well-formed type in context <code>Γ</code>."</p>
+</li>
+<li><p><code>Γ ⊢ T type</code> means:</p>
+<ul>
+<li><p>nothing (it is bogus, neither true nor false) if <code>Γ</code> is not a well-formed context,</p>
+</li>
+<li><p>"<code>T</code> is a well-formed type in context <code>Γ</code>" if <code>Γ</code> is a well-formed context. (Note that the condition that <code>Γ</code> be well-formed, is now outside of the quotes: the condition is not part of the meaning of the judgement, but must be satisfied for the judgement to be utterable.)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 class="atx" id="32-contexts">3.2 Contexts</h4>
+<ul>
+<li>Contexts are lists of typed variables</li>
+<li>(Nameless representation of variables) Contexts are lists of types.</li>
+</ul>
+<p>Which variables can appear where?</p>
+<ul>
+<li>Read derivation bottom-up</li>
+<li>Start from empty context</li>
+<li>Add variable when moving under binder<ul>
+<li>So order of variables is meaningful!</li>
+</ul>
+</li>
+<li>Binder should be type-checked in <strong>its</strong> context<ul>
+<li>So each variable's type can depend on all previously bound variables (those to its left).</li>
+</ul>
+</li>
+</ul>
+<pre><code class="fenced-code-block">-----
+Ø ctx</code></pre>
+<pre><code class="fenced-code-block">Γ ctx (presupposed)
+Γ ⊢ T type
+------------
+Γ, x : T ctx</code></pre>
+<p>Note: <code>Γ ctx</code> will often be omitted as it is implied by utterability of <code>Γ ⊢ T type</code>.</p>
+<h4 class="atx" id="33-the-dependent-function-type">3.3 The dependent function type</h4>
+<p>Output <em>type</em> may depend on the input <em>value</em>.</p>
+<p>Example:</p>
+<pre><code class="fenced-code-block language-agda">zeroes : (n : Nat) -&gt; Vec Nat n
+zeroes 0 = nil
+zeroes (suc n) = cons 0 (zeroes n)</code></pre>
+<h5 class="atx" id="formation-rule">Formation rule</h5>
+<pre><code class="fenced-code-block">Γ ctx       (presupposed)
+Γ ⊢ T1 type (presupposed)
+Γ, x : T1 ⊢ T2 type
+---------------------
+Γ ⊢ Π(x : T1).T2 type</code></pre>
+<p>e.g. <code>Vec Nat n</code> depends on <code>n</code>.</p>
+<p>Agda notations for <code>Π(x : A).T</code>:</p>
+<ul>
+<li><code>(x : A) -&gt; T</code></li>
+<li><code>∀(x : A) -&gt; T</code></li>
+<li><code>∀ x -&gt; T</code> when the domain <code>A</code> can be inferred</li>
+</ul>
+<p>When <code>T</code> does not depend on <code>x</code>, write <code>A -&gt; T</code>.</p>
+<h5 class="atx" id="relation-to-lambda-cube">Relation to Lambda-cube</h5>
+<p>Domain <code>T1</code> and codomain <code>T2</code> may or may not be <code>Set</code> (or built from <code>Set</code>),
+so the above function type encompasses all features of the Lambda-cube:</p>
+<ul>
+<li>Ordinary non-dependent term-level functions, e.g. <code>iszero : Nat -&gt; Bool</code>,</li>
+<li>Polymorphic functions, e.g. <code>id : (X : Set) -&gt; X -&gt; X</code>,</li>
+<li>Type operators, e.g. <code>State : Set -&gt; Set -&gt; Set</code>,</li>
+<li>Dependent types, e.g. <code>Vec Bool : Nat -&gt; Set</code>,</li>
+<li>Dependent term-level functions, e.g. <code>zeroes : (n : Nat) -&gt; Vec Nat n</code>.</li>
+</ul>
+<h5 class="atx" id="abstraction-rule">Abstraction rule</h5>
+<p>The abstraction rule looks quite familiar, of course with adapted type:</p>
+<pre><code class="fenced-code-block">Γ ctx               (presupposed)
+Γ ⊢ T1 type         (presupposed)
+Γ, x : T1 ⊢ T2 type (presupposed)
+Γ, x : T1 ⊢ t : T2
+------------------------------
+Γ ⊢ λ(x : T1).t : Π(x : T1).T2</code></pre>
+<p>Often, we omit the type label on the binder and simply write <code>λx.t</code>.</p>
+<p>Some possible Agda notations are:</p>
+<ul>
+<li><p><code>λ(x : T1) -&gt; t</code></p>
+</li>
+<li><p><code>λ x -&gt; t</code> (when <code>T1</code> can be inferred)</p>
+</li>
+</ul>
+<h5 class="atx" id="application-rule">Application rule</h5>
+<pre><code class="fenced-code-block">Γ ctx               (presupposed)
+Γ ⊢ T1 type         (presupposed)
+Γ, x : T1 ⊢ T2 type (presupposed)
+Γ ⊢ f : Π(x : T1).T2
+Γ ⊢ t : T1
+--------------------
+Γ ⊢ f t : [x ↦ t]T2</code></pre>
+<h5 class="atx" id="example-the-type-of-cons">Example: The type of <code>cons</code></h5>
+<p>We now know enough to derive well-formedness of the type of <code>cons</code>, which is</p>
+<pre><code class="fenced-code-block language-agda">cons : (X : Set) -&gt; X -&gt; List X -&gt; List X</code></pre>
+<p>Recall that <code>A -&gt; B</code> is syntactic sugar for <code>(x : A) -&gt; B</code> where <code>B</code> does not depend on <code>x</code>.</p>
+<p>It is derived as follows:</p>
+<pre><code class="fenced-code-block">              -----------------------------------------
+              X : Set, x : X, xs : List X ⊢ X : Set
+              -----------------------------------------
+              X : Set, x : X, xs : List X ⊢ X type
+              -----------------------------------------
+              X : Set, x : X, xs : List X ⊢ List X type
+                                       :
+----------------------------           :
+X : Set, x : X ⊢ X : Set               :
+----------------------------           :
+X : Set, x : X ⊢ X type                :
+----------------------------           :
+X : Set, x : X ⊢ List X type           :
+----------------------------------------------------
+              X : Set, x : X ⊢ List X -&gt; List X type
+                                       :
+              -----------------        :
+              X : Set ⊢ X : Set        :
+              -----------------        :
+              X : Set ⊢ X type         :
+----------    ------------------------------------
+⊢ Set type    X : Set ⊢ X -&gt; List X -&gt; List X type
+--------------------------------------------------
+⊢ (X : Set) -&gt; X -&gt; List X -&gt; List X type</code></pre>
+<h5 class="atx" id="implicit-arguments">Implicit arguments</h5>
+<p>Agda has a feature called implicit arguments.</p>
+<ul>
+<li>Merely for usability</li>
+<li>Usually absent in theoretical presentations of DTT</li>
+<li>Can omit implicit arguments in abstractions &amp; applications. Agda will infer them.</li>
+</ul>
+<p>Syntax:</p>
+<ul>
+<li>For function types:<ul>
+<li><code>{x : T1} -&gt; T2</code></li>
+<li><code>∀ {x : T1} -&gt; T2</code></li>
+<li><code>∀ {x} -&gt; T2</code> (when <code>T1</code> can be inferred)</li>
+</ul>
+</li>
+<li>For abstraction:<ul>
+<li><code>λ {x : T1} -&gt; t</code></li>
+<li><code>λ {x} -&gt; t</code> (when <code>T1</code> can be inferred)</li>
+<li><code>t</code> (infer the abstraction altogether)</li>
+</ul>
+</li>
+<li>For application:<ul>
+<li><code>f {t}</code></li>
+<li><code>f {x = t}</code> (use value <code>t</code> for argument <code>x</code> when <code>f</code> takes multiple implicit arguments)</li>
+<li><code>f</code> (when the argument can be inferred)</li>
+</ul>
+</li>
+</ul>
+<p>Only works if Agda is able to infer the given arguments.
+E.g. if I declare addition of natural numbers with implicit arguments:</p>
+<pre><code class="fenced-code-block language-agda">_+_ : {x y : Nat} -&gt; Nat</code></pre>
+<p>and then write <code>_+_ : Nat</code>, leaving the operands implicit, then Agda will have a hard time inferring these.</p>
+<p>Conversely, if I define <code>zeroes</code> with an implicit argument:</p>
+<pre><code class="fenced-code-block language-agda">zeroes : {n : Nat} -&gt; Vec Nat n</code></pre>
+<p>and then write <code>zeroes : Vec Nat 3</code> is required, then Agda will infer that I mean <code>zeroes {3}</code>.</p>
+<p>Implicit arguments:</p>
+<ul>
+<li>are usable thanks to type dependency</li>
+<li>can be regarded separately from type dependency.</li>
+</ul>
+<h5 class="atx" id="relation-to-pair-tuple-and-record-types">Relation to pair, tuple and record types</h5>
+<ul>
+<li>Pair types: binary product, indexed by metatheoretic set/type <code>I = {0, 1}</code></li>
+<li>Tuple types: <code>n</code>-ary product, indexed by metatheoretic set/type <code>I = {0, 1, ..., n}</code></li>
+<li>Record types: <code>L</code>-ary product, indexed by a metatheoretic set/type of field names <code>I = L</code></li>
+</ul>
+<p>Constructing a pair/tuple/record:</p>
+<ul>
+<li>Assign to each metatheoretic index <code>i ∈ I</code> a term <code>tᵢ : Tᵢ</code>.</li>
+</ul>
+<p>Projection from a pair/tuple/record:</p>
+<ul>
+<li><p>Choose a metatheoretic index <code>i ∈ I</code> and get <code>projᵢ t : Tᵢ</code>.</p>
+</li>
+<li><p>Π-type <code>Π(i : I).T i</code>: <code>I</code>-ary product, indexed by <strong>internal</strong> type <code>I</code>.</p>
+<ul>
+<li>Construct <code>λ(i : I).t i</code>: assign to each internal index <code>i : I</code> a term <code>t i : T i</code></li>
+<li>Project from <code>f : Π(i : I).T i</code>: choose internal index <code>i : I</code> and get <code>f i : T i</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Some authors confusingly call the Π-type the dependent product type.
+A better name would be the "internal-ary" product type because what changes w.r.t. the binary product type <code>T₁ × T₂</code> is not dependency of <code>Tᵢ</code> on <code>i</code>, but the arity.</p>
+<h5 class="atx" id="relation-to-non-dependent-functions">Relation to non-dependent functions</h5>
+<ul>
+<li>Calculus: Product of always the same number = a power.</li>
+<li>Type theory: Product of always the same type = non-dependent function type <code>I -&gt; T</code>.
+(Called exponential object in category theory)</li>
+</ul>
+<h4 class="atx" id="34-the-dependent-pair-type">3.4 The dependent pair type</h4>
+<p>Pairs whose second component's <em>type</em> depends on their first component's <em>value</em>.</p>
+<p>Example:</p>
+<pre><code class="fenced-code-block">List A = Σ(n : Nat).Vec A n</code></pre>
+<p>Three-element list:
+<code>(3, cons a1 (cons a2 (cons a3 nil)) ) : Σ(n : Nat).Vec A n</code>
+where indeed the second component has type <code>Vec A 3</code>.</p>
+<h5 class="atx" id="formation-rule-1">Formation rule</h5>
+<pre><code class="fenced-code-block">Γ ctx       (presupposed)
+Γ ⊢ T1 type (presupposed)
+Γ, x : T1 ⊢ T2 type
+---------------------
+Γ ⊢ Σ(x : T1).T2 type</code></pre>
+<p>(Similar to Π-type)</p>
+<p>Alternatively denoted <code>(x : T1) × T2</code>. When <code>T2</code> does not depend on <code>x</code>, we simply write <code>T1 × T2</code> instead.</p>
+<p>Agda notation: <code>Σ[ x ∈ T1 ] T2</code> (with that exact usage of whitespace).</p>
+<h5 class="atx" id="introduction-rule">Introduction rule</h5>
+<p>First component will be substituted into the type of the second component:</p>
+<pre><code class="fenced-code-block">Γ ctx               (presupposed)
+Γ ⊢ T1 type         (presupposed)
+Γ, x : T1 ⊢ T2 type (presupposed)
+Γ ⊢ t1 : T1
+Γ ⊢ t2 : [x ↦ t1]T2
+----------------------------
+Γ ⊢ (t1 , t2) : Σ(x : T1).T2</code></pre>
+<h5 class="atx" id="projection-rules">Projection rules</h5>
+<p>First projection:</p>
+<pre><code class="fenced-code-block">Γ ctx               (presupposed)
+Γ ⊢ T1 type         (presupposed)
+Γ, x : T1 ⊢ T2 type (presupposed)
+Γ ⊢ p : Σ(x : T1).T2
+--------------------
+Γ ⊢ fst p : T1</code></pre>
+<p>For the second projection, we substitute the first projection into the type:</p>
+<pre><code class="fenced-code-block">Γ ctx               (presupposed)
+Γ ⊢ T1 type         (presupposed)
+Γ, x : T1 ⊢ T2 type (presupposed)
+Γ ⊢ p : Σ(x : T1).T2
+--------------------
+Γ ⊢ snd p : [x ↦ fst p]T2</code></pre>
+<h5 class="atx" id="relation-to-sum-and-variant-types">Relation to sum and variant types</h5>
+<ul>
+<li>Sum type <code>T₁ + T₂</code>, also called coproduct, disjoint union or tagged union.<ul>
+<li>Agda notation: <code>T₁ ⊎ T₂</code>.</li>
+<li>Binary coproduct indexed by metatheoretic set/type <code>I = {0, 1}</code>.</li>
+</ul>
+</li>
+<li>Variant type: coproduct indexed by metatheoretic set/type of labels/tags <code>I = L</code>.</li>
+</ul>
+<p>Construction:</p>
+<ul>
+<li>Choose a metatheoretic index <code>i ∈ I</code> and provide a term <code>t : Tᵢ</code>.</li>
+</ul>
+<p>Elimination (create function <code>B -&gt; C</code> where <code>B</code> is sum/variant):</p>
+<ul>
+<li><p>Case analysis on the tag.</p>
+</li>
+<li><p>Create, for every metatheoretic tag <code>i ∈ I</code>, a function <code>fᵢ : Tᵢ -&gt; C</code>.</p>
+</li>
+<li><p>Σ-type <code>Σ(i : I).T i</code>: <code>I</code>-ary coproduct, indexed by <strong>internal</strong> type <code>I</code>.</p>
+</li>
+</ul>
+<p>Construction:</p>
+<ul>
+<li>Choose an internal index <code>i : I</code> and provide a term <code>t : T i</code></li>
+</ul>
+<p>Elimination <code>(Σ(i : I).T i) -&gt; C</code>:</p>
+<ul>
+<li>Case analysis on the tag.</li>
+<li>Create, for every internal tag <code>i : I</code>, a function <code>f i : T i -&gt; C</code>.</li>
+<li>Wrapped up in a single dependent function <code>f : Π(i : I).T i -&gt; C</code>. (Currying)</li>
+</ul>
+<p>Some authors confusingly call the Σ-type the dependent sum type.
+A better name would be the "internal-ary" sum type because what changes w.r.t. the binary sum type <code>T₁ + T₂</code> is not dependency of <code>Tᵢ</code> on <code>i</code>, but the arity.</p>
+<h5 class="atx" id="relation-to-non-dependent-pair-types">Relation to non-dependent pair types</h5>
+<ul>
+<li>Calculus: Sum of always the same number = a product.</li>
+<li>Type theory: Coproduct of always the same type = non-dependent pair type <code>I × T</code>.
+(Called exponential object in category theory)</li>
+</ul>
+<h5 class="atx" id="dependent-record-types">Dependent record types</h5>
+<p>Generalizations of non-dependent pair type <code>A × B</code></p>
+<ul>
+<li>Σ-type generalizes non-dependent pair type (introduces dependency).</li>
+<li>Record type (<code>L</code>-ary).</li>
+<li>Dependent record type (both).</li>
+</ul>
+<p>To specify a dependent record type with <code>n</code> fields in context <code>Γ</code>, we need to provide:</p>
+<ul>
+<li><p>a metatheoretic <em>list</em> of field names <code>l₁</code>, …, <code>lₙ</code> (not a set; the order is important),</p>
+</li>
+<li><p>for each field <code>lᵢ</code>, a type <code>Tᵢ</code> in context <code>Γ, x₁ : T₁, ..., xᵢ₋₁ : Tᵢ₋₁</code>.</p>
+</li>
+</ul>
+<p>Then in order to inhabit that record type, we need to provide:</p>
+<ul>
+<li>for each field <code>lᵢ</code>, a term <code>tᵢ : [x₁ ↦ t₁, ..., xᵢ₋₁ ↦ tᵢ₋₁]Tᵢ</code>.</li>
+</ul>
+<p>From a tuple <code>p</code> of the dependent record type, we can extract a component <code>p.lᵢ</code> of type <code>[x₁ ↦ p.l₁, ..., xᵢ₋₁ ↦ p.lᵢ₋₁]Tᵢ</code>.</p>
+<p>An example is the type of monoids, definable in Agda:</p>
+<pre><code class="fenced-code-block language-agda">record Monoid : Set₁ where
+  constructor mkMonoid
+  field
+    Carrier : Set
+    mempty : Carrier
+    _&lt;&gt;_ : Carrier -&gt; Carrier -&gt; Carrier
+    lunit : {x : Carrier} -&gt; mempty &lt;&gt; x ≡ x
+    runit : {x : Carrier} -&gt; x &lt;&gt; mempty ≡ x
+&nbsp;&nbsp;&nbsp; assoc : {x y z : Carrier} -&gt; ((x &lt;&gt; y) &lt;&gt; z) ≡ (x &lt;&gt; (y &lt;&gt; z))</code></pre>
+<ul>
+<li><p>Each field's type is allowed to refer to the values of the previous fields.</p>
+</li>
+<li><p>When we create an instance, we first have to decide upon the carrier. This carrier will then be substituted into the types of all the following fields.</p>
+</li>
+<li><p>Conversely, given a monoid instance <code>m</code>, the neutral element <code>m .mempty</code> will have type <code>m .Carrier</code>.</p>
+</li>
+<li><p>Record types can be desugared to nested product types</p>
+</li>
+<li><p>Dependent record types can be desugared to nested Σ-types.
+For instance, the <code>Monoid</code> type would desugar to <code>Σ(Carrier : Set).Σ(mempty : Carrier).{!etcetera!}</code>.</p>
+</li>
+</ul>
+<h4 class="atx" id="35-the-universe">3.5 The universe</h4>
+<p>Regardless of what variables are in scope, the universe exists:</p>
+<pre><code class="fenced-code-block">Γ ctx
+------------
+Γ ⊢ Set type</code></pre>
+<p>There are introduction rules corresponding to all type formation rules, e.g.:</p>
+<pre><code class="fenced-code-block">Γ ctx (presupposed)      Γ ctx (presupposed)
+Γ ⊢ A type               Γ ⊢ A : Set
+Γ ⊢ B type               Γ ⊢ B : Set
+-------------------  ~&gt;  -------------------
+Γ ⊢ A × B type           Γ ⊢ A × B : Set</code></pre>
+<p>Then there is a rule asserting that every element of <code>Set</code> is, in fact, a type:</p>
+<pre><code class="fenced-code-block">Γ ctx (presupposed)
+Γ ⊢ T : Set
+-----------
+Γ ⊢ El T type</code></pre>
+<p>The operation <code>El</code> is generally omitted, i.e. we generally write <code>T</code> instead of <code>El T</code>. In Agda, <code>El</code> is always omitted.</p>
+<h4 class="atx" id="36-data-types">3.6 Data types</h4>
+<p>Agda supports data type declarations. E.g.:</p>
+<pre><code class="fenced-code-block language-agda">data List (A : Set) : Set where
+  nil : List A
+  cons : A -&gt; List A -&gt; List A</code></pre>
+<ul>
+<li>data type declarations are usually not considered part of DTT</li>
+<li>rather, they extend the system with additional inference rules:</li>
+</ul>
+<p>Formation rule:</p>
+<pre><code class="fenced-code-block">Γ ctx (presupposed)
+Γ ⊢ A type
+-----------
+Γ ⊢ List A type</code></pre>
+<p>Constructors:</p>
+<pre><code class="fenced-code-block">Γ ctx (presupposed)
+Γ ⊢ A type (presupposed)
+------------------------
+Γ ⊢ nil : List A</code></pre>
+<pre><code class="fenced-code-block">Γ ctx (presupposed)
+Γ ⊢ A type (presupposed)
+Γ ⊢ a : A
+Γ ⊢ as : List A
+------------------------
+Γ ⊢ cons a as : List A</code></pre>
+<p>Elimination rule, a.k.a. dependent eliminator (see course notes).</p>
+<ul>
+<li>In Agda, we usually do not use dependent eliminators directly.</li>
+<li>Instead, Agda features an (in practice) much more powerful <strong>pattern matching</strong> system that is (or should be) non-straightforwardly desugarable to applications of dependent eliminators.</li>
+</ul>
+<h3 class="atx" id="4-the-curry-howard-correspondence">4 The Curry-Howard correspondence</h3>
+<p>For now, we refer to the overview sheet.</p>
+<h3 class="atx" id="5-equality">5 Equality</h3>
+<h4 class="atx" id="51-motivation">5.1 Motivation</h4>
+<p>If <code>t : Vec A (2 + 3)</code> and we need <code>? : Vec A 5</code>, can we use <code>t</code>?</p>
+<p>More generally, if <code>t : T1</code> and we need <code>? : T2</code>, which we know is equal, can we use <code>t</code>?</p>
+<p>Questions:</p>
+<ul>
+<li>What does it mean for types to be equal?</li>
+<li>Types depend on terms, so:
+What does it mean for terms to be equal?</li>
+</ul>
+<p>Nice properties to have:</p>
+<ol>
+<li><p>Equality should be an <strong>equivalence relation</strong>, i.e. reflexive, symmetric and transitive,</p>
+</li>
+<li><p>Equality should be a <strong>congruence</strong>, i.e. respected by any operation our language provides,</p>
+</li>
+<li><p>If one term <strong>reduces</strong> to another, then they should be regarded as <strong>equal</strong>,</p>
+</li>
+<li><p>If two terms of the same pair/tuple/record type have <strong>equal projections</strong>, then they should be regarded as equal,</p>
+</li>
+<li><p>If two terms <code>f1</code> and <code>f2</code> of the same function type are <strong>pointwise equal</strong>, i.e. <code>f1 x</code> equals <code>f2 x</code> where <code>x</code> is a fresh variable in the functions' domain, then they should be regarded as equal,</p>
+</li>
+<li><p>If it is <strong>assumed in the context</strong> that two terms are equal, then they should be regarded as equal,</p>
+</li>
+<li><p>More generally, if it can be <strong>proven from the context</strong> that two terms are equal, then they should be regarded as equal.</p>
+</li>
+</ol>
+<h5 class="atx" id="role-of-substitution">Role of substitution</h5>
+<p>We can start by remarking that it is hard to have (6) without having (7).
+Indeed, if context <code>Γ</code> proves <code>t1 ≡ t2</code>, i.e. <code>Γ ⊢ e : t1 ≡ t2</code> (where <code>e</code> is the proof)
+then any judgement <code>Γ, x : t1 ≡ t2 ⊢ J</code> can be substituted to become <code>Γ ⊢ [x ↦ e]J</code>.
+Now in the extended context, we have the <em>assumption</em>, so according to (6) we expect that <code>t1</code> and <code>t2</code> will be equal. But it would be problematic if substitution (which can be triggered by function application) were to break equality. So <code>t1</code> and <code>t2</code> should also be equal in context <code>Γ</code>.</p>
+<h5 class="atx" id="decidability-of-typing">Decidability of typing</h5>
+<p>Now property (7) seems a bit strong and in fact it is:
+Equality relation generated by (roughly) the above requirements, which we will call <strong>propositional equality</strong>, is undecidable.</p>
+<blockquote>
+<p>If <code>t : T1</code> and we need <code>? : T2</code>, which we know is equal, can we use <code>t</code>?</p>
+</blockquote>
+<p>Answer: No, not in general, not if you want type-checking to be algorithmic.</p>
+<p>However, we do not want to give up on the earlier question:</p>
+<blockquote>
+<p>If <code>t : Vec A (2 + 3)</code> and we need <code>? : Vec A 5</code>, can we use <code>t</code>?</p>
+</blockquote>
+<p>which does not rely on properties (6) and (7).</p>
+<ul>
+<li><p>Equality relation generated by properties 1-5 is decidable and even has computable normal forms.</p>
+</li>
+<li><p>This relation is called <strong>judgemental</strong> or <strong>definitional equality</strong>.</p>
+</li>
+<li><p>Added to the type system in the form of two additional judgement forms:</p>
+<ul>
+<li><p><code>Γ ⊢ t1 = t2 : T</code> - Terms <code>t1</code> and <code>t2</code> of type <code>T</code> are judgementally equal.</p>
+<p>This presupposes <code>Γ ⊢ t1 : T</code> and <code>Γ ⊢ t2 : T</code>, and hence also <code>Γ ⊢ T type</code> and <code>Γ ctx</code>.</p>
+</li>
+<li><p><code>Γ ⊢ T1 = T2 type</code> - Types <code>T1</code> and <code>T2</code> are judgementally equal.</p>
+<p>This presupposes <code>Γ ⊢ T1 type</code> and <code>Γ ⊢ T2 type</code> and hence also <code>Γ ctx</code>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>A positive answer to our second question is ensured by the conversion rule, which allows us to coerce terms between judgementally equal types:</p>
+<pre><code class="fenced-code-block">Γ ⊢ t : T1
+Γ ⊢ T1 = T2 type
+----------------
+Γ ⊢ t : T2</code></pre>
+<h4 class="atx" id="52-judgemental-equality">5.2 Judgemental equality</h4>
+<ol>
+<li><p>Equality should be an <strong>equivalence relation</strong>, i.e. reflexive, symmetric and transitive.</p>
+<pre><code class="fenced-code-block">Γ ⊢ T1 = T2 type
+----------------       ...
+Γ ⊢ T2 = T1 type</code></pre>
+</li>
+<li><p>Equality should be a <strong>congruence</strong>, i.e. respected by any operation our language provides.</p>
+<p>For every inference rule for types/terms, add equality preservation rule, e.g.</p>
+<pre><code class="fenced-code-block">Γ ⊢ a = a' : A
+Γ ⊢ as = as' : List A
+---------------------
+Γ ⊢ cons a as = cons a' as' : List A</code></pre>
+<p>In particular, counterpart for the <code>El</code> rule:</p>
+<pre><code class="fenced-code-block">Γ ⊢ T = T' : Set
+----------------
+Γ ⊢ El T = El T' type</code></pre>
+</li>
+<li><p>If one term <strong>reduces</strong> to another, then they should be regarded as <strong>equal</strong>.</p>
+<p>For every redex (reducible expression), there is a so-called <strong>β-rule</strong> expressing that the redex (called β-redex) is equal to its reduced form, e.g.</p>
+<pre><code class="fenced-code-block">Γ, x : T1 ⊢ t2 : T2
+Γ ⊢ t1 : T1
+-------------------
+Γ ⊢ (λx.t2) t1 = [x ↦ t1]t2 : [x ↦ t1]T2</code></pre>
+</li>
+<li><p>If two terms of the same pair/tuple/record type have <strong>equal projections</strong>, then they should be regarded as equal.</p>
+<p>For the Σ-type and every user-defined record-type, there is a so-called <strong>η-rule</strong> expressing that the record is equal to its η-expansion, which is the pair/tuple/record of all its projections:</p>
+<pre><code class="fenced-code-block">Γ ⊢ p : Σ(x : T1).T2
+--------------------
+Γ ⊢ p = (fst p , snd p) : Σ(x : T1).T2</code></pre>
+<p>In the standard library, the unit type is defined as a record type with zero fields. The η-law then expresses that any term of that type is equal to <code>tt</code>.</p>
+</li>
+<li><p>If two terms <code>f1</code> and <code>f2</code> of the same function type are <strong>pointwise equal</strong>, i.e. <code>f1 x</code> equals <code>f2 x</code> where <code>x</code> is a fresh variable in the functions' domain, then they should be regarded as equal.</p>
+<p>Similarly, there is an <strong>η-rule</strong> for the function type:</p>
+<pre><code class="fenced-code-block">Γ ⊢ f : Π(x : T1).T2
+--------------------
+Γ ⊢ f = λx.(f x) : Π(x : T1).T2</code></pre>
+</li>
+</ol>
+<p>These 5 collections of rules generate the judgemental equality relation.</p>
+<p>If we use a term <code>t : T1</code> in a hole <code>? : T2</code>, then Agda will check whether the conversion rule from §5.1 applies, i.e. whether <code>Γ ⊢ T1 = T2 type</code>.</p>
+<ul>
+<li>If yes, then the usage is accepted.</li>
+<li>If no, then Agda will issue a type error, typically mentioning inequality of corresponding subterms of <code>T1</code> and <code>T2</code>.</li>
+</ul>
+<h4 class="atx" id="53-propositional-equality">5.3 Propositional equality</h4>
+<ul>
+<li>Judgemental equality is a judgement,</li>
+<li>Propositional equality is a proposition, i.e. a type.</li>
+</ul>
+<p>Can be declared as indexed data type in Agda:</p>
+<pre><code class="fenced-code-block language-agda">data _≡_ {A : Set} (x : A) : (y : A) → Set where
+  instance refl : x ≡ x</code></pre>
+<p>(If you wonder why <code>x</code> appears before the colon and <code>y</code> appears after it: Variables introduced before the colon are <em>parameters</em> of the type family. They are chosen once and remain the same throughout the data type declaration. An example of a parameter is the element type <code>A</code> in <code>Vec A n</code>. The variables after the colon are <em>indices</em> of the type family and can be determined by individual constructors. An example of an index is the length index <code>n</code> in <code>Vec A n</code>, which is <code>0</code> for <code>nil</code> and <code>suc n</code> for <code>cons</code>. For the propositional equality type, the <code>refl</code> constructor determines that one hand of the equation must be equal to the other, so at least one hand of the equation must be treated as an index.)</p>
+<h5 class="atx" id="inference-rules-1">Inference rules</h5>
+<p>Data types extend DTT.</p>
+<h6 class="atx" id="formation-rule-2">Formation rule</h6>
+<pre><code class="fenced-code-block">Γ ⊢ T type
+Γ ⊢ t1 : T
+Γ ⊢ t2 : T
+----------
+Γ ⊢ t1 ≡ t2 type</code></pre>
+<h6 class="atx" id="introduction-rule-1">Introduction rule:</h6>
+<pre><code class="fenced-code-block">Γ ⊢ T type
+Γ ⊢ t : T
+----------
+Γ ⊢ refl : t ≡ t</code></pre>
+<p>Judgemental equality implies propositional equality. Indeed, assume <code>Γ ⊢ t1 = t2 : T</code>:</p>
+<pre><code class="fenced-code-block">---------------        (assumption)       (presupposed)
+Γ ⊢ t1 = t1 : T        Γ ⊢ t1 = t2 : T    Γ ⊢ t1 : T
+--------------------------------------    ------------------
+Γ ⊢ (t1 ≡ t1) = (t1 ≡ t2) : T             Γ ⊢ refl : t1 ≡ t1
+------------------------------------------------------------
+Γ ⊢ refl : t1 ≡ t2</code></pre>
+<p>Alternative explanation:</p>
+<ul>
+<li>Due to the conversion rule, types do not distinguish between judgementally equal terms.</li>
+<li>Thus, types do not speak about syntactic terms, but about terms up to judgemental equality.</li>
+<li><code>refl</code> proves that any term - considered up to judgemental equality - is propositionally equal to itself.</li>
+<li><code>t1</code> and <code>t2</code> are the same up to judgemental equality, hence <code>refl</code> applies.</li>
+</ul>
+<h6 class="atx" id="elimination-rule">Elimination rule</h6>
+<p>Propositional equality should satisfy property (2):</p>
+<blockquote>
+<p>Equality should be a <strong>congruence</strong>, i.e. respected by any operation our language provides,</p>
+</blockquote>
+<p>This is expressed by the dependent eliminator, called the J-rule (see course notes).</p>
+<p>In Agda: use <strong>pattern matching</strong> instead.</p>
+<h5 class="atx" id="behaviour">Behaviour</h5>
+<p>Remarkably, with these few rules, propositional equality satisfies most of the desired properties:</p>
+<ol>
+<li><p><strong>Reflexivity</strong> is proven by <code>refl</code>. <strong>Symmetry and transitivity</strong> are provable by pattern matching.</p>
+</li>
+<li><p><strong>Congruence</strong> is proven by pattern matching.</p>
+</li>
+<li><p>If one term <strong>reduces</strong> to another, then they are judgementally equal and hence, by the conversion rule, propositionally equal.</p>
+</li>
+<li><p>For <strong>pair, tuple and record</strong> types with a <strong>finite</strong> number of components,
+we can prove that records with equal fields are equal by pattern matching on each of the componentwise equality proofs.</p>
+<p>For <strong>tuple and record types</strong> with an <strong>infinite</strong> number of components (e.g. infinite streams), we need to <strong>postulate</strong> this property without proof.</p>
+</li>
+<li><p>For functions, we also need to postulate that pointwise equality implies equality, a property called <strong>function extensionality</strong>:</p>
+<pre><code class="fenced-code-block language-agda">postulate
+  funext : {A : Set} {B : A -&gt; Set}
+           {f1 f2 : (x : A) -&gt; B x}
+           (p : (x : A) -&gt; f1 x ≡ f2 x)
+        -&gt; f1 ≡ f2</code></pre>
+<p>Postulating:</p>
+<ul>
+<li>Postulate an element of a type -&gt; Postulate that a proposition has a proof.</li>
+<li>Logically: this asserts the proposition.</li>
+<li>Seen as a program, the postulate has no definition and does not compute.</li>
+<li>Programs involving postulates can get stuck.</li>
+</ul>
+</li>
+<li><p>If it is <strong>assumed in the context</strong> that two terms are equal, then they should be regarded as equal:</p>
+<pre><code class="fenced-code-block">Γ, w : t1 ≡ t2, Δ ⊢ w : t1 ≡ t2</code></pre>
+</li>
+<li><p>If it can be <strong>proven from the context</strong> that two terms are equal, then they should be regarded as equal.</p>
+<p>For propositional equality, this property is tautological:</p>
+<pre><code class="fenced-code-block">Γ ⊢ p : t1 ≡ t2</code></pre>
+</li>
+</ol>
+<h3 class="atx" id="6-normalization">6 Normalization</h3>
+<p>Just like STLC (TAPL ch 12), dependent type theory satisfies a normalization result:</p>
+<blockquote>
+<p>Closed well-typed terms reduce to values (of the same type) in a finite number of steps.</p>
+</blockquote>
+<p>For programming:</p>
+<ul>
+<li>Programs terminate without errors.</li>
+</ul>
+<p>For proving:</p>
+<ul>
+<li>Closed propositional equality proofs <code>⊢ e : t1 ≡ t2</code> reduce to <code>⊢ refl : t1 ≡ t2</code>, well-typedness of which implies that <code>t1</code> and <code>t2</code> are actually <strong>judgementally</strong> equal.</li>
+<li>Closed proofs of falsity <code>⊢ e : ⊥</code> reduce to a value <code>⊢ v : ⊥</code>. Since <code>⊥</code> has zero constructors, there are no values of type <code>⊥</code>, so there cannot be any closed proofs of falsity. So DTT is <strong>consistent</strong>: we cannot prove falsity without making any assumptions.</li>
+</ul>
+<h4 class="atx" id="termination-checking">Termination-checking</h4>
+<p>List concatenation:</p>
+<pre><code class="fenced-code-block language-agda">_++_ : {X : Set} -&gt; List X -&gt; List X -&gt; List X
+nil ++ ys = ys
+(cons x xs) ++ ys = cons x (xs ++ ys)</code></pre>
+<p>Definition of <code>_++_</code> refers to itself.
+This way we can write diverging definitions:</p>
+<pre><code class="fenced-code-block language-agda">_+++_ : {X : Set} -&gt; List X -&gt; List X -&gt; List X
+xs +++ ys = xs +++ ys</code></pre>
+<p>Can prove falsity:</p>
+<pre><code class="fenced-code-block language-agda">undefined : ⊥
+undefined = undefined</code></pre>
+<p>To keep programs terminating and to keep Agda (reasonably) consistent, there is a <strong>termination checker</strong>.</p>
+<p>Approves of a self-referencing program if there is one argument that is always smaller in recursive calls than in the parent call. For <code>_++_</code>: first argument. This guarantees termination:</p>
+<pre><code class="fenced-code-block">              cons 1 (cons 2 (cons 3 (nil)))    ++ cons 4 nil
+= cons 1 (            cons 2 (cons 3 (nil))     ++ cons 4 nil   )
+= cons 1 (cons 2 (            cons 3 (nil)      ++ cons 4 nil   ))
+= cons 1 (cons 2 (cons 3 (            nil       ++ cons 4 nil   )))
+= cons 1 (cons 2 (cons 3 (cons 4 nil)))</code></pre>
+<h3 class="atx" id="7-other-concepts-and-further-reading">7 Other concepts and further reading</h3>
+<p>(See course notes)</p>
+<h3 class="atx" id="bibliography">Bibliography</h3>
+<p>(See course notes)</p>
+</article>
+</body>
+</html>

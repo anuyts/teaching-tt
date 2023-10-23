@@ -3,31 +3,37 @@
 *Andreas Nuyts*
 
 ### 0 Intro
+
 * STLC: Simply typed
 * Chapter 23-24: `∀`, `∃`
-  * Term variables `x : Bool`
-  * Type (operator) variables `X`
+   * Term variables `x : Bool`
+   * Type (operator) variables `X`
 * Dependent type systems
-  * Types are "first class citizens"
-  * Type of types `Set` (as in Agda, `Type` would be more logical)
-  * Type variables `X : Set` are special case of term variables
+   * Types are "first class citizens"
+   * Type of types `Set` (as in Agda, `Type` would be more logical)
+   * Type variables `X : Set` are special case of term variables
 
 Goal of this chapter:
+
 * background information to help you to **use** DTT
 
 **Not** the goal of this chapter:
+
 * prove metatheorems about DTT (termination, consistency, decidability of typing, ...)
 * understand how to implement a proof-assistant
 
 ### 1 Motivation
 
 #### 1.1 Programming
+
 * Dependently typed languages are **programming languages**
 * Simple types: catch simple errors at compile time (e.g. no bool when number is expected)
 * Dependent types: More subtle
 
 ##### Lists
+
 Type `List A` in TAPL:
+
 ```
 nil : List A
 cons : A -> List A -> List A
@@ -36,6 +42,7 @@ cons : A -> List A -> List A
 Three-element list: `cons a1 (cons a2 (cons a3 nil))`.
 
 Analyzing/using lists:
+
 ```
 isnil : List A -> Bool
 head : List A -> A
@@ -45,16 +52,20 @@ tail : List A -> List A
 Problem: `head nil` and `tail nil` are not defined (stuck terms).
 
 Possible solution:
+
 ```
 fold : B -> (A -> B -> B) -> List A -> B
 fold nilB consB nil = nilB
 fold nilB consB (cons a as) = consB a (fold nilB consB as)
 ```
+
 * `fold` is total
 * but maybe we **know** that `xs` is non-empty and we want its `head`/`tail`
 
 ##### Vectors
+
 Vectors are lists of given length:
+
 ```agda
 data Vec (A : Set) : Nat -> Set where
   nil : Vec 0
@@ -62,6 +73,7 @@ data Vec (A : Set) : Nat -> Set where
 ```
 
 Compute `head`/`tail` when length is nonzero (i.e. successor of something):
+
 ```agda
 head : {n : Nat} -> Vec A (suc n) -> A
 head (cons a as) = a
@@ -72,13 +84,16 @@ tail (cons a as) = as
 No clauses for `nil` since `head nil` and `tail nil` are ill-typed.
 
 #### 1.2 Proving
+
 * Dependent type theory is a **constructive logic**.
-  * Constructive: a proposition can only be asserted by providing evidence
+   * Constructive: a proposition can only be asserted by providing evidence
 * Proposition `A` is made up of logical connectives (and, or, not, implication, …).
 * The type `Proof A` of evidence needed to assert `A` is defined by induction.
 
 ##### Conjunction
+
 `Proof (A ∧ B) = Proof A × Proof B`
+
 ```
 Γ |– a : Proof A
 Γ |– b : Proof B
@@ -88,7 +103,9 @@ No clauses for `nil` since `head nil` and `tail nil` are ill-typed.
 ```
 
 ##### Existential quantification
+
 `Proof (∃ (x : A) . P(x)) = Σ (x : A) . Proof (P(x))`
+
 ```
 Γ |– a : A
 Γ |– p : Proof(P(a))
@@ -100,26 +117,30 @@ No clauses for `nil` since `head nil` and `tail nil` are ill-typed.
 Note: Agda notation `Σ[ x ∈ A ] Proof (P(x))`
 
 ##### Propositions are types
+
 * Above, we had `Proof : MathProp -> Set`
 * Actually, we define
-  * `MathProp = Set`
-  * ```
-    Proof : MathProp -> Set
-    Proof A = A
-    ```
-  * `A ∧ B = A × B` etc.
+   * `MathProp = Set`
+   * ```
+     Proof : MathProp -> Set
+     Proof A = A
+     ```
+   * `A ∧ B = A × B` etc.
 * So propositions **are** types
 * This correspondence is called the **Curry-Howard correspondence**.
 
 ##### Example
+
 "If A implies (B or C), then (A and not B) implies C"
 
 can be written as:
+
 ```agda
 taut : {A B C : Set} -> (A -> B ⊎ C) -> (A × (B -> ⊥) -> C)
 ```
 
 and proven as follows:
+
 ```agda
 taut f (a , notb) with f a
 taut f (a , notb) | inl b with notb b
@@ -128,6 +149,7 @@ taut f (a , notb) | inr c = c
 ```
 
 ##### Example
+
 Property of constructive logic:
 
 If for each `x ∈ X`, there exists some `y ∈ Y` such that `P x y`,
@@ -142,7 +164,9 @@ property p = ( λ x -> proj₁ (p x) , λ x -> proj₂ (p x) )
 ```
 
 #### 1.3 Programs requiring evidence
+
 ##### Indexing a list
+
 ```agda
 _!!_ : List A -> Nat -> A
 cons a as !! 0 = a
@@ -153,6 +177,7 @@ cons a as !! suc n = as !! n
 * Undefined when index out of bounds
 
 ##### Indexing a vector
+
 * Use length-indexed vector type
 * Provide evidence that index is within bounds
 
@@ -162,25 +187,30 @@ nil !! (i , ())
 cons a as !! (0 , _) = a
 cons a as !! (suc n , p) = as !! (n , decrement< p)
 ```
+
 where `decrement< : {m n : Nat} -> (suc m < suc n) -> (m < n)`.
 
 * Absurd clause for the empty list:
-  * `i < 0` is absurd, so use absurd pattern `()`
-  * no right-hand-side.
-  
+   * `i < 0` is absurd, so use absurd pattern `()`
+   * no right-hand-side.
+
 #### 1.4 Formalizing programming languages
+
 ##### Object/internal language and metalanguage
+
 We can use DTT/Agda as a metatheory for the formalization of *another* language:
+
 * **object/internal language:** the one we want to formalize.
-  * e.g. Untyped/typed arithmetic, ULC, STLC, Web assembly, ...
+   * e.g. Untyped/typed arithmetic, ULC, STLC, Web assembly, ...
 * **metalanguage/metatheory:** DTT / Agda / set theory / ...
 * Language confusion:
-  * internal types vs metatypes
-  * internal terms vs metaterms
-  * internal judgements vs metajudgements
-  * ...
+   * internal types vs metatypes
+   * internal terms vs metaterms
+   * internal judgements vs metajudgements
+   * ...
 
 ##### Metatype of internal derivations
+
 Thanks to (meta)type dependency, we can consider a (meta)type of internal derivations,
 
 parametrized by an internal context, term and type:
@@ -190,36 +220,43 @@ IDeriv : ICtx -> ITerm -> IType -> Set
 ```
 
 Now `IDeriv Γ t T` can be read as
+
 * the metatype of internal derivations
 * the metaproposition "The internal judgement `Γ ⊢ t : T` is derivable"
-  * evidence (inhabitant) is a derivation tree.
+   * evidence (inhabitant) is a derivation tree.
 
 Agda mixfix notation to write `Γ ⊢ t ∈ T` instead of `IDeriv Γ t T`:
+
 ```agda
 _⊢_∈_ : ICtx -> ITerm -> IType -> Set
 _⊢_∈_ = IDeriv
 ```
 
 ##### Inference rules
+
 * Derivation trees are generated by inference rules
 * `IDeriv` is a datatype (inductive type)
-  * constructors are inference rules
+   * constructors are inference rules
 * Proofs by induction on a derivation, are:
-  * Agda functions taking argument of type `IDeriv`
-  * Proceed by case distinction on the outer inference rule.
-  
+   * Agda functions taking argument of type `IDeriv`
+   * Proceed by case distinction on the outer inference rule.
+
 ### 2 The Lambda-cube
+
 This part
+
 * is not essential to work with DTT
 * is included to clarify how DTT relates to other extensions of STLC
-  * in particular and `∀` and `∃` (ch 23-24)
-  
+   * in particular and `∀` and `∃` (ch 23-24)
+
 DTT arises by extending STLC with 3 features.
+
 * We can extend with any subset of these features -> `2^3 = 8` possibilities
   -> Corners of the Lambda-cube.
 * Each feature introduces a new lambda-abstraction rule, creating a new class of functions.
 
 #### 2.0 Simply-typed lambda-calculus (STLC)
+
 STLC has lambda-abstraction for functions sending **terms** to **terms**:
 
 ```
@@ -229,11 +266,13 @@ STLC has lambda-abstraction for functions sending **terms** to **terms**:
 ```
 
 The other abstraction rules have **types/type operators** as input and/or output.
+
 * **Kinds** classify types & type operators.
 * `T :: K` (double colon) means `T` has kind `K`.
 * Kind of types is called `*`, e.g. `Bool :: *`
 
 #### 2.1 Type operators (TAPL ch 29)
+
 Sending **types/type operators** to **types/type operators**:
 
 ```
@@ -245,15 +284,19 @@ Sending **types/type operators** to **types/type operators**:
 The **kind** of the above lambda-abstraction is the function kind `K -> K'`.
 
 ##### Example: State monad
+
 A program of type `State S A` is a program that computes a value of type `A`
 using a single mutable variable of type `S` but is otherwise pure.
 
 Define:
+
 ```
 State :: * -> * -> *
 State = Λ(S :: *).Λ(A :: *).(S -> S × A)
 ```
+
 so `State S A = S -> S × A`:
+
 * input: initial state
 * output: final state & return value
 
@@ -276,12 +319,16 @@ S :: * ⊢ Λ(A :: *).(S -> S × A) :: * -> *
 ```
 
 ##### Type operators vs. function types
+
 Subtle difference between `Λ` and `->`:
+
 * `Λ(S :: *)` and `Λ(A :: *)` indicate that `State` *itself* takes two arguments `S` and `A` of kind `*`.
 * The function type `S -> ...` indicates that the *elements* of `State S A` take an argument of type `S`.
 
 #### 2.2 Polymorphic functions (ch 23)
+
 Sending **types/type operators** so **terms**:
+
 ```
 Γ, X :: K ⊢ b : B
 -----------------------
@@ -291,9 +338,11 @@ Sending **types/type operators** so **terms**:
 * Important: type `B` can mention type variable `X`.
 * The **type** of the above lambda-abstraction is the **universal type**`∀(X :: K).B`,
   which universally quantifies over the kind `K`.
-  
+
 ##### Examples
+
 Polymorphic list operations:
+
 ```
 nil : ∀(X :: *).List X
 cons : ∀(X :: *).X -> List X -> List X
@@ -301,19 +350,23 @@ isnil : ∀(X :: *).List X -> Bool
 ```
 
 Polymorphic identity function:
+
 ```
 id : ∀(X :: *).X -> X
 id = Λ(X :: *).λ(x : X).x
 ```
 
 ##### System names
+
 * STLC + polymorphic functions = System F a.k.a. the polymorphic lambda-calculus (TAPL ch 23)
-  * Only kind is `*`
+   * Only kind is `*`
 * STLC + polymorphic functions + type operators = System Fω (TAPL ch 30)
-  * Other kinds
-  
+   * Other kinds
+
 #### 2.3 Dependent types
+
 Sending **terms** `x` to **types** `P(x)`:
+
 ```
 Γ, x : A ⊢ T :: K
 -----------------------
@@ -323,6 +376,7 @@ Sending **terms** `x` to **types** `P(x)`:
 The **kind** of a dependent type is a function kind, whose domain is merely a type.
 
 Due to type dependency, the usual term-to-term lambda-abstraction from the STLC can actually create dependent functions:
+
 ```
 Γ, x : A ⊢ T :: K
 Γ, x : A ⊢ t : T
@@ -331,6 +385,7 @@ Due to type dependency, the usual term-to-term lambda-abstraction from the STLC 
 ```
 
 Agda notations for `Π(x : A).T`:
+
 * `(x : A) -> T`
 * `∀(x : A) -> T`
 * `∀ x -> T` when the domain `A` can be inferred
@@ -338,9 +393,11 @@ Agda notations for `Π(x : A).T`:
 When `T` does not depend on `x`, write `A -> T`.
 
 ##### Examples
+
 `Vec :: * -> Nat -> *` sends terms `n : Nat` types `Vec A n :: *`.
 
 Could even define `Vec` recursively:
+
 ```
 Vec :: * -> Nat -> *
 Vec A 0 = Unit
@@ -350,14 +407,18 @@ Vec A (suc n) = A × Vec A n
 Note: type argument of `Vec` requires the existence of type operators.
 
 ##### System names:
+
 STLC + type dependency is called:
+
 * λΠ-calculus (because we now have Π-types)
 * logical framework (LF):
-  * `P :: A -> *` can be regarded as a **predicate** on `A`
-  * `x` satisfies the predicate if there is a proof (inhabitant) of `P(x)`.
-  
+   * `P :: A -> *` can be regarded as a **predicate** on `A`
+   * `x` satisfies the predicate if there is a proof (inhabitant) of `P(x)`.
+
 #### 2.4 The universe `Set`
+
 DTT requires:
+
 * type operators
 * polymorphic functions
 * dependent types
@@ -365,19 +426,24 @@ DTT requires:
 This is called the Calculus of Constructions, one flavour of DTT.
 
 We can now abolish type/kind distinction.
+
 * Rename `*` to `Set`, known as the **universe**.
 
 ### 3 Inference rules of DTT
+
 Reminder:
+
 * Goal = provide spec of DTT to help you use Agda
 * Goal ≠ metatheoretical study of DTT
 
 We consider MLTT (Martin-Löf type theory), one flavour of DTT.
 
 #### 3.1 Judgement forms
+
 STLC: contexts & types defined by a simple grammar.
 
 DTT:
+
 * Contexts mention types
 * Types mention terms, including variables
 * -> Scope matters
@@ -411,19 +477,21 @@ Under the Curry-Howard correspondence, the latter two judgements may also be rea
    * nothing (it is bogus, neither true nor false) if `Γ` is not a well-formed context,
   
    * "`T` is a well-formed type in context `Γ`" if `Γ` is a well-formed context. (Note that the condition that `Γ` be well-formed, is now outside of the quotes: the condition is not part of the meaning of the judgement, but must be satisfied for the judgement to be utterable.)
-   
+
 #### 3.2 Contexts
+
 * Contexts are lists of typed variables
 * (Nameless representation of variables) Contexts are lists of types.
 
 Which variables can appear where?
+
 * Read derivation bottom-up
 * Start from empty context
 * Add variable when moving under binder
-  * So order of variables is meaningful!
+   * So order of variables is meaningful!
 * Binder should be type-checked in **its** context
-  * So each variable's type can depend on all previously bound variables (those to its left).
-  
+   * So each variable's type can depend on all previously bound variables (those to its left).
+
 ```
 -----
 Ø ctx
@@ -439,9 +507,11 @@ Which variables can appear where?
 Note: `Γ ctx` will often be omitted as it is implied by utterability of `Γ ⊢ T type`.
 
 #### 3.3 The dependent function type
+
 Output *type* may depend on the input *value*.
 
 Example:
+
 ```agda
 zeroes : (n : Nat) -> Vec Nat n
 zeroes 0 = nil
@@ -449,6 +519,7 @@ zeroes (suc n) = cons 0 (zeroes n)
 ```
 
 ##### Formation rule
+
 ```
 Γ ctx       (presupposed)
 Γ ⊢ T1 type (presupposed)
@@ -456,9 +527,11 @@ zeroes (suc n) = cons 0 (zeroes n)
 ---------------------
 Γ ⊢ Π(x : T1).T2 type
 ```
+
 e.g. `Vec Nat n` depends on `n`.
 
 Agda notations for `Π(x : A).T`:
+
 * `(x : A) -> T`
 * `∀(x : A) -> T`
 * `∀ x -> T` when the domain `A` can be inferred
@@ -466,6 +539,7 @@ Agda notations for `Π(x : A).T`:
 When `T` does not depend on `x`, write `A -> T`.
 
 ##### Relation to Lambda-cube
+
 Domain `T1` and codomain `T2` may or may not be `Set` (or built from `Set`),
 so the above function type encompasses all features of the Lambda-cube:
 
@@ -550,6 +624,7 @@ X : Set, x : X ⊢ List X type           :
 ##### Implicit arguments
 
 Agda has a feature called implicit arguments.
+
 * Merely for usability
 * Usually absent in theoretical presentations of DTT
 * Can omit implicit arguments in abstractions & applications. Agda will infer them.
@@ -587,44 +662,54 @@ zeroes : {n : Nat} -> Vec Nat n
 and then write `zeroes : Vec Nat 3` is required, then Agda will infer that I mean `zeroes {3}`.
 
 Implicit arguments:
+
 * are usable thanks to type dependency
 * can be regarded separately from type dependency.
 
 ##### Relation to pair, tuple and record types
+
 * Pair types: binary product, indexed by metatheoretic set/type `I = {0, 1}`
 * Tuple types: `n`-ary product, indexed by metatheoretic set/type `I = {0, 1, ..., n}`
 * Record types: `L`-ary product, indexed by a metatheoretic set/type of field names `I = L`
 
 Constructing a pair/tuple/record:
+
 * Assign to each metatheoretic index `i ∈ I` a term `tᵢ : Tᵢ`.
 
 Projection from a pair/tuple/record:
+
 * Choose a metatheoretic index `i ∈ I` and get `projᵢ t : Tᵢ`.
 
 * Π-type `Π(i : I).T i`: `I`-ary product, indexed by **internal** type `I`.
-  * Construct `λ(i : I).t i`: assign to each internal index `i : I` a term `t i : T i`
-  * Project from `f : Π(i : I).T i`: choose internal index `i : I` and get `f i : T i`.
+  
+   * Construct `λ(i : I).t i`: assign to each internal index `i : I` a term `t i : T i`
+   * Project from `f : Π(i : I).T i`: choose internal index `i : I` and get `f i : T i`.
 
 Some authors confusingly call the Π-type the dependent product type.
 A better name would be the "internal-ary" product type because what changes w.r.t. the binary product type `T₁ × T₂` is not dependency of `Tᵢ` on `i`, but the arity.
 
 ##### Relation to non-dependent functions
+
 * Calculus: Product of always the same number = a power.
 * Type theory: Product of always the same type = non-dependent function type `I -> T`.
   (Called exponential object in category theory)
-  
+
 #### 3.4 The dependent pair type
+
 Pairs whose second component's *type* depends on their first component's *value*.
 
 Example:
+
 ```
 List A = Σ(n : Nat).Vec A n
 ```
+
 Three-element list:
 `(3, cons a1 (cons a2 (cons a3 nil)) ) : Σ(n : Nat).Vec A n`
 where indeed the second component has type `Vec A 3`.
 
 ##### Formation rule
+
 ```
 Γ ctx       (presupposed)
 Γ ⊢ T1 type (presupposed)
@@ -632,6 +717,7 @@ where indeed the second component has type `Vec A 3`.
 ---------------------
 Γ ⊢ Σ(x : T1).T2 type
 ```
+
 (Similar to Π-type)
 
 Alternatively denoted `(x : T1) × T2`. When `T2` does not depend on `x`, we simply write `T1 × T2` instead.
@@ -639,7 +725,9 @@ Alternatively denoted `(x : T1) × T2`. When `T2` does not depend on `x`, we sim
 Agda notation: `Σ[ x ∈ T1 ] T2` (with that exact usage of whitespace).
 
 ##### Introduction rule
+
 First component will be substituted into the type of the second component:
+
 ```
 Γ ctx               (presupposed)
 Γ ⊢ T1 type         (presupposed)
@@ -651,7 +739,9 @@ First component will be substituted into the type of the second component:
 ```
 
 ##### Projection rules
+
 First projection:
+
 ```
 Γ ctx               (presupposed)
 Γ ⊢ T1 type         (presupposed)
@@ -662,6 +752,7 @@ First projection:
 ```
 
 For the second projection, we substitute the first projection into the type:
+
 ```
 Γ ctx               (presupposed)
 Γ ⊢ T1 type         (presupposed)
@@ -672,24 +763,30 @@ For the second projection, we substitute the first projection into the type:
 ```
 
 ##### Relation to sum and variant types
+
 * Sum type `T₁ + T₂`, also called coproduct, disjoint union or tagged union.
-  * Agda notation: `T₁ ⊎ T₂`.
-  * Binary coproduct indexed by metatheoretic set/type `I = {0, 1}`.
+   * Agda notation: `T₁ ⊎ T₂`.
+   * Binary coproduct indexed by metatheoretic set/type `I = {0, 1}`.
 * Variant type: coproduct indexed by metatheoretic set/type of labels/tags `I = L`.
 
 Construction:
+
 * Choose a metatheoretic index `i ∈ I` and provide a term `t : Tᵢ`.
 
 Elimination (create function `B -> C` where `B` is sum/variant):
+
 * Case analysis on the tag.
+
 * Create, for every metatheoretic tag `i ∈ I`, a function `fᵢ : Tᵢ -> C`.
 
 * Σ-type `Σ(i : I).T i`: `I`-ary coproduct, indexed by **internal** type `I`.
 
 Construction:
+
 * Choose an internal index `i : I` and provide a term `t : T i`
 
 Elimination `(Σ(i : I).T i) -> C`:
+
 * Case analysis on the tag.
 * Create, for every internal tag `i : I`, a function `f i : T i -> C`.
 * Wrapped up in a single dependent function `f : Π(i : I).T i -> C`. (Currying)
@@ -698,12 +795,15 @@ Some authors confusingly call the Σ-type the dependent sum type.
 A better name would be the "internal-ary" sum type because what changes w.r.t. the binary sum type `T₁ + T₂` is not dependency of `Tᵢ` on `i`, but the arity.
 
 ##### Relation to non-dependent pair types
+
 * Calculus: Sum of always the same number = a product.
 * Type theory: Coproduct of always the same type = non-dependent pair type `I × T`.
   (Called exponential object in category theory)
 
 ##### Dependent record types
+
 Generalizations of non-dependent pair type `A × B`
+
 * Σ-type generalizes non-dependent pair type (introduces dependency).
 * Record type (`L`-ary).
 * Dependent record type (both).
@@ -735,10 +835,13 @@ record Monoid : Set₁ where
 ```
 
 * Each field's type is allowed to refer to the values of the previous fields.
+
 * When we create an instance, we first have to decide upon the carrier. This carrier will then be substituted into the types of all the following fields.
+
 * Conversely, given a monoid instance `m`, the neutral element `m .mempty` will have type `m .Carrier`.
 
 * Record types can be desugared to nested product types
+
 * Dependent record types can be desugared to nested Σ-types.
   For instance, the `Monoid` type would desugar to `Σ(Carrier : Set).Σ(mempty : Carrier).{!etcetera!}`.
 
@@ -831,6 +934,7 @@ If `t : Vec A (2 + 3)` and we need `? : Vec A 5`, can we use `t`?
 More generally, if `t : T1` and we need `? : T2`, which we know is equal, can we use `t`?
 
 Questions:
+
 * What does it mean for types to be equal?
 * Types depend on terms, so:
   What does it mean for terms to be equal?
@@ -852,6 +956,7 @@ Nice properties to have:
 7. More generally, if it can be **proven from the context** that two terms are equal, then they should be regarded as equal.
 
 ##### Role of substitution
+
 We can start by remarking that it is hard to have (6) without having (7).
 Indeed, if context `Γ` proves `t1 ≡ t2`, i.e. `Γ ⊢ e : t1 ≡ t2` (where `e` is the proof)
 then any judgement `Γ, x : t1 ≡ t2 ⊢ J` can be substituted to become `Γ ⊢ [x ↦ e]J`.
@@ -873,16 +978,18 @@ However, we do not want to give up on the earlier question:
 which does not rely on properties (6) and (7).
 
 * Equality relation generated by properties 1-5 is decidable and even has computable normal forms.
+
 * This relation is called **judgemental** or **definitional equality**.
+
 * Added to the type system in the form of two additional judgement forms:
-
-  * `Γ ⊢ t1 = t2 : T` - Terms `t1` and `t2` of type `T` are judgementally equal.
   
-    This presupposes `Γ ⊢ t1 : T` and `Γ ⊢ t2 : T`, and hence also `Γ ⊢ T type` and `Γ ctx`.
-
-  * `Γ ⊢ T1 = T2 type` - Types `T1` and `T2` are judgementally equal.
+   * `Γ ⊢ t1 = t2 : T` - Terms `t1` and `t2` of type `T` are judgementally equal.
+     
+     This presupposes `Γ ⊢ t1 : T` and `Γ ⊢ t2 : T`, and hence also `Γ ⊢ T type` and `Γ ctx`.
   
-    This presupposes `Γ ⊢ T1 type` and `Γ ⊢ T2 type` and hence also `Γ ctx`.
+   * `Γ ⊢ T1 = T2 type` - Types `T1` and `T2` are judgementally equal.
+     
+     This presupposes `Γ ⊢ T1 type` and `Γ ⊢ T2 type` and hence also `Γ ctx`.
 
 A positive answer to our second question is ensured by the conversion rule, which allows us to coerce terms between judgementally equal types:
 
@@ -904,7 +1011,7 @@ A positive answer to our second question is ensured by the conversion rule, whic
    ```
 
 2. Equality should be a **congruence**, i.e. respected by any operation our language provides.
-
+   
    For every inference rule for types/terms, add equality preservation rule, e.g.
    
    ```
@@ -923,7 +1030,7 @@ A positive answer to our second question is ensured by the conversion rule, whic
    ```
 
 3. If one term **reduces** to another, then they should be regarded as **equal**.
-
+   
    For every redex (reducible expression), there is a so-called **β-rule** expressing that the redex (called β-redex) is equal to its reduced form, e.g.
    
    ```
@@ -934,7 +1041,7 @@ A positive answer to our second question is ensured by the conversion rule, whic
    ```
 
 4. If two terms of the same pair/tuple/record type have **equal projections**, then they should be regarded as equal.
-
+   
    For the Σ-type and every user-defined record-type, there is a so-called **η-rule** expressing that the record is equal to its η-expansion, which is the pair/tuple/record of all its projections:
    
    ```
@@ -946,7 +1053,7 @@ A positive answer to our second question is ensured by the conversion rule, whic
    In the standard library, the unit type is defined as a record type with zero fields. The η-law then expresses that any term of that type is equal to `tt`.
 
 5. If two terms `f1` and `f2` of the same function type are **pointwise equal**, i.e. `f1 x` equals `f2 x` where `x` is a fresh variable in the functions' domain, then they should be regarded as equal.
-
+   
    Similarly, there is an **η-rule** for the function type:
    
    ```
@@ -958,6 +1065,7 @@ A positive answer to our second question is ensured by the conversion rule, whic
 These 5 collections of rules generate the judgemental equality relation.
 
 If we use a term `t : T1` in a hole `? : T2`, then Agda will check whether the conversion rule from §5.1 applies, i.e. whether `Γ ⊢ T1 = T2 type`.
+
 * If yes, then the usage is accepted.
 * If no, then Agda will issue a type error, typically mentioning inequality of corresponding subterms of `T1` and `T2`.
 
@@ -976,6 +1084,7 @@ data _≡_ {A : Set} (x : A) : (y : A) → Set where
 (If you wonder why `x` appears before the colon and `y` appears after it: Variables introduced before the colon are *parameters* of the type family. They are chosen once and remain the same throughout the data type declaration. An example of a parameter is the element type `A` in `Vec A n`. The variables after the colon are *indices* of the type family and can be determined by individual constructors. An example of an index is the length index `n` in `Vec A n`, which is `0` for `nil` and `suc n` for `cons`. For the propositional equality type, the `refl` constructor determines that one hand of the equation must be equal to the other, so at least one hand of the equation must be treated as an index.)
 
 ##### Inference rules
+
 Data types extend DTT.
 
 ###### Formation rule
@@ -1009,12 +1118,14 @@ Judgemental equality implies propositional equality. Indeed, assume `Γ ⊢ t1 =
 ```
 
 Alternative explanation:
+
 * Due to the conversion rule, types do not distinguish between judgementally equal terms.
 * Thus, types do not speak about syntactic terms, but about terms up to judgemental equality.
 * `refl` proves that any term - considered up to judgemental equality - is propositionally equal to itself.
 * `t1` and `t2` are the same up to judgemental equality, hence `refl` applies.
 
 ###### Elimination rule
+
 Propositional equality should satisfy property (2):
 
 > Equality should be a **congruence**, i.e. respected by any operation our language provides,
@@ -1049,10 +1160,11 @@ Remarkably, with these few rules, propositional equality satisfies most of the d
    ```
    
    Postulating:
-   * Postulate an element of a type -> Postulate that a proposition has a proof.
-   * Logically: this asserts the proposition.
-   * Seen as a program, the postulate has no definition and does not compute.
-   * Programs involving postulates can get stuck.
+   
+    * Postulate an element of a type -> Postulate that a proposition has a proof.
+    * Logically: this asserts the proposition.
+    * Seen as a program, the postulate has no definition and does not compute.
+    * Programs involving postulates can get stuck.
 
 6. If it is **assumed in the context** that two terms are equal, then they should be regarded as equal:
    
@@ -1061,13 +1173,13 @@ Remarkably, with these few rules, propositional equality satisfies most of the d
    ```
 
 7. If it can be **proven from the context** that two terms are equal, then they should be regarded as equal.
-
+   
    For propositional equality, this property is tautological:
    
    ```
    Γ ⊢ p : t1 ≡ t2
    ```
-   
+
 ### 6 Normalization
 
 Just like STLC (TAPL ch 12), dependent type theory satisfies a normalization result:
@@ -1075,13 +1187,16 @@ Just like STLC (TAPL ch 12), dependent type theory satisfies a normalization res
 > Closed well-typed terms reduce to values (of the same type) in a finite number of steps.
 
 For programming:
+
 * Programs terminate without errors.
 
 For proving:
+
 * Closed propositional equality proofs `⊢ e : t1 ≡ t2` reduce to `⊢ refl : t1 ≡ t2`, well-typedness of which implies that `t1` and `t2` are actually **judgementally** equal.
 * Closed proofs of falsity `⊢ e : ⊥` reduce to a value `⊢ v : ⊥`. Since `⊥` has zero constructors, there are no values of type `⊥`, so there cannot be any closed proofs of falsity. So DTT is **consistent**: we cannot prove falsity without making any assumptions.
 
 #### Termination-checking
+
 List concatenation:
 
 ```agda
@@ -1118,7 +1233,9 @@ Approves of a self-referencing program if there is one argument that is always s
 ```
 
 ### 7 Other concepts and further reading
+
 (See course notes)
 
 ### Bibliography
+
 (See course notes)
